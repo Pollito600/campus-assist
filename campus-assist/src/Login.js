@@ -20,11 +20,13 @@ function Login() {
 
   return (
     <div>
-      <h2>Campus-Assist</h2>
+      <br />
+      
       <label>
         Email:
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
       </label>
+      <br />
       <br />
       <label>
         Password:

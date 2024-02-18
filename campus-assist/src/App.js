@@ -1,7 +1,7 @@
 // src/App.js
 import React from 'react';
 import Login from "./Login";
-import logo from './logo.svg';
+import logo from './logo2_1.png';
 import './App.css';
 
 function App() {
@@ -14,9 +14,10 @@ function App() {
       
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          TEAM 7 - CSE 3311 - ITERATION 1 
-        </p>        
+        <br />
+        <p>CSE 3311 - TEAM 7 - ITERATION 1</p>
+        <br />
+        <p>CAMPUS-ASSIST</p>          
         <Login />
         <p></p>
         <button onClick={openSignUpWindow}>
