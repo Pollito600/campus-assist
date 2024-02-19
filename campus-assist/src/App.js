@@ -1,14 +1,12 @@
 // src/App.js
 import React from 'react';
-import Login from "./Login";
+import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
+import AuthDetails from './components/AuthDetails';
 import logo from './logo2_1.png';
 import './App.css';
 
 function App() {
-  const openSignUpWindow = () => {
-    window.open('/signup', 'Signup', 'width=400,height=400');
-  };
-
   return (
     <div className="App">
       
@@ -18,11 +16,11 @@ function App() {
         <p>CSE 3311 - TEAM 7 - ITERATION 1</p>
         <br />
         <p>CAMPUS-ASSIST</p>          
-        <Login />
+        <SignIn/>
+        <SignUp/>
+        <AuthDetails/>
         <p></p>
-        <button onClick={openSignUpWindow}>
-          Sign up
-        </button>
+
       </header>
     </div>
   );
