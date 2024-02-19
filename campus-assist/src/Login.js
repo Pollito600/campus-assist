@@ -24,13 +24,13 @@ function Login() {
       
       <label>
         Email:
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} style={{ color: 'black' }}/>
       </label>
       <br />
       <br />
       <label>
         Password:
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}style={{ color: 'black' }} />
       </label>
       <br />
       <button onClick={handleLogin}>Login</button>
