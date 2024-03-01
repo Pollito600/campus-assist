@@ -5,12 +5,12 @@ import { auth } from "../../FirebaseConfig";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const SignUp = (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
-    
+
     if (email.endsWith('@mavs.uta.edu')) {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -31,7 +31,7 @@ const SignUp = () => {
 
   return (
     <div className="sign-in-container">
-      <form onSubmit={SignUp}>
+      <form onSubmit={handleSignUp}>
         <h1>Create Account</h1>
         <input
           type="email"
@@ -39,14 +39,14 @@ const SignUp = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           style={{ color: 'black' }}
-        ></input>
+        />
         <input
           type="password"
           placeholder="Enter your password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           style={{ color: 'black' }}
-        ></input>
+        />
         <button type="submit">Sign Up</button>
       </form>
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}

@@ -1,27 +1,32 @@
 // src/App.js
+import './App.css';
 import React from 'react';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
-import AuthDetails from './components/AuthDetails';
-import logo from './logo2_1.png';
-import './App.css';
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Service from "./pages/Services";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <br />
-        <p>CSE 3311 - TEAM 7 - ITERATION 1</p>
-        <br />
-        <p>CAMPUS-ASSIST</p>          
-        <SignIn/>
-        <SignUp/>
-        <AuthDetails/>
-        <p></p>
-
-      </header>
+      <Router>
+        <Navbar />
+        <Routes>
+        
+          <Route path="/" exact element={<Home />} ></Route>
+          <Route path="/service" exact element={<Service />} ></Route>
+          <Route path="/about" exact element={<About />} ></Route>
+          <Route path="/contact" exact element={<Contact />} ></Route>
+          <Route path="/signup" exact element={<SignUp />} ></Route>
+          <Route path="/login" exact element={<SignIn />} ></Route>
+        
+        </Routes>
+        
+      </Router>
     </div>
   );
 }
