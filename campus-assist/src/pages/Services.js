@@ -5,6 +5,7 @@ import "../styles/Service.css";
 
 function Service() {
   return (
+    /* Showing different services from the service list */
     <div className="service">
       <h1 className="serviceTitle">Our Services</h1>
       <div className="serviceList">

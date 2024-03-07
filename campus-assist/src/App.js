@@ -13,7 +13,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <Router>
+      
+      {/* Creating Routes to redirect to different pages */}
+      <Router> 
         <Navbar />
         <Routes>
         

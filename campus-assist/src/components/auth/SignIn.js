@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../FirebaseConfig';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -8,15 +9,20 @@ const SignIn = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  const navigate = useNavigate(); // Rename to 'navigate' for clarity
+
   const signIn = (e) => {
     e.preventDefault();
-    
+
     if (email.endsWith('@mavs.uta.edu')) {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           console.log(userCredential);
           setSuccessMessage(`Successfully logged in with email: ${email}`);
           setErrorMessage('');
+          
+          // Redirect to the services page upon successful sign-in
+          navigate("/service");
         })
         .catch((error) => {
           console.log(error);
