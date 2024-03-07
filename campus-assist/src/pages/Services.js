@@ -1,6 +1,7 @@
 import React from "react";
 import { ServiceList } from "../helpers/ServiceList";
 import ServiceItem from "../components/ServiceItem";
+
 import "../styles/Service.css";
 
 function Service() {
@@ -15,7 +16,7 @@ function Service() {
               key={key}
               image={serviceItem.image}
               name={serviceItem.name}
-              price={serviceItem.price}
+              
             />
           );
         })}
