@@ -1,13 +1,15 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from "../../FirebaseConfig";
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
+  
+  const navigate = useNavigate(); // Navigate constant created to redirect to LogIn page
   const handleSignUp = (e) => {
     e.preventDefault();
 
@@ -17,6 +19,9 @@ const SignUp = () => {
           console.log(userCredential);
           setSuccessMessage(`Successfully registered with email: ${email}`);
           setErrorMessage('');
+
+            // Redirect to the LogIn page upon successful sign-up
+            navigate("/login");
         })
         .catch((error) => {
           console.log(error);

@@ -15,6 +15,9 @@ function Home() {
         <Link to="/login">
           <button> LOG IN </button>
         </Link>
+        <Link to="/signup">
+          <button> SIGN UP </button>
+        </Link>
       </div>
     </div>
   );
