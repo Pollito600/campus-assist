@@ -1,5 +1,5 @@
 import React from "react";
-import ContactGirl from "../assets/UTA students2.jpg";
+import ContactGirl from "../assets/three students sitting.jpg";
 import "../styles/Contact.css";
 
 function Contact() {
@@ -7,7 +7,7 @@ function Contact() {
     <div className="contact">
       <div
         className="leftSide"
-        style={{ backgroundImage: `url(${ContactGirl})` }}
+        style={{ backgroundImage: `url('${ContactGirl}')` }}
       ></div>
       <div className="rightSide">
         <h1> Contact Us</h1>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BannerImage from "../assets/friends-helping-move-apartments.jpg";
+import BannerImage from "../assets/move-in-detail-2.jpg";
 import "../styles/Home.css";
 
 function Home() {
@@ -15,6 +15,8 @@ function Home() {
         <Link to="/login">
           <button> LOG IN </button>
         </Link>
+        <br></br>
+        <br></br>
         <Link to="/signup">
           <button> SIGN UP </button>
         </Link>

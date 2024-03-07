@@ -22,14 +22,14 @@
   font-size: 90px;
   height: 60px;
   font-weight: 50;
-  color: black;
+  color: white;
 }
 
 .headerContainer p {
   padding: 0;
   font-size: 40px;
   font-weight: lighter;
-  color: black;
+  color: white;
 }
 
 .headerContainer button {

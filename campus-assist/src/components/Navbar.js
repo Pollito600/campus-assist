@@ -24,18 +24,19 @@ function Navbar() {
           <Link to="/signup"> SignUp </Link>
         </div>
       </div>
-      <div className="rightSide">
-        <Link to="/"> Home </Link>
-        <Link to="/service"> Services </Link>
-        <Link to="/about"> About </Link>
-        <Link to="/contact"> Contact </Link>
-        <Link to="/login"> LogIn </Link>
-        <Link to="/signup"> SignUp </Link>
-
-        <button onClick={toggleNavbar}>
+        <div className="rightSide">
+          <Link to="/">Home </Link>
+          {/* <Link to="/service">Services </Link> */}
+          <Link to="/login">LogIn </Link>
+          <Link to="/signup">SignUp </Link>
+          <Link to="/about">About Us </Link>
+          <Link to="/contact">Contact Us </Link>
           
-        </button>
-      </div>
+
+          <button onClick={toggleNavbar}>
+            
+          </button>
+        </div>
     </div>
   );
 }
