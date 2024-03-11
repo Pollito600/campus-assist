@@ -69,6 +69,16 @@
   width: 70px;
   margin: 5px;
 }
+
+/* Customize the Logout button */
+.navbar .rightSide button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin: 20px;
+}
+
 @media only screen and (max-width: 900px) {
   .navbar .rightSide a {
     width: 70px;

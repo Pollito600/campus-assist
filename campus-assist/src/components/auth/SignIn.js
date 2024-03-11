@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../FirebaseConfig';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../AuthContext';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -9,7 +10,8 @@ const SignIn = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const navigate = useNavigate(); // Rename to 'navigate' for clarity
+  const navigate = useNavigate();
+  const { login } = useAuth(); // Access the login function from AuthContext
 
   const signIn = (e) => {
     e.preventDefault();
@@ -20,7 +22,10 @@ const SignIn = () => {
           console.log(userCredential);
           setSuccessMessage(`Successfully logged in with email: ${email}`);
           setErrorMessage('');
-          
+
+          // Call the login function from AuthContext
+          login(userCredential.user);
+
           // Redirect to the services page upon successful sign-in
           navigate("/service");
         })
