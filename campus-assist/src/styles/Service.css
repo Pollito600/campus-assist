@@ -4,11 +4,11 @@
   display: flex;
   justify-content: center;
   text-align:center;
-  align-items:left;
+  align-items:center;
   flex-direction: column;
 }
 .service .serviceTitle {
-  font-family: cursive;
+  font-family:"Trebuchet MS", sans-serif;
   font-size: 60px;
 }
 
@@ -16,7 +16,7 @@
   width: 50vw;
   height: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   place-items: center;
 }
 
