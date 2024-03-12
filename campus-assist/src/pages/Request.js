@@ -16,12 +16,12 @@ const Request = () => {
   };
 
   const handleSubmit = () => {
-    // Implement your logic to handle the form submission
+    // Implement logic to handle the form submission
     console.log("Service:", selectedService);
     console.log("Details:", details);
     console.log("Payment:", payment);
     console.log("Selected Date:", selectedDate);
-    // Add your logic to submit the request
+    
   };
 
   return (
@@ -34,15 +34,15 @@ const Request = () => {
           id="service-select"
           value={selectedService}
           label="Select Service"
-          onChange={(e) => setSelectedService(e.target.value)}
-        >
+          onChange={(e) => setSelectedService(e.target.value)} 
+        > {/*Drop down menu */}
           <MenuItem value="moving">Moving</MenuItem>
           <MenuItem value="basic-reparation">Basic Reparation</MenuItem>
           <MenuItem value="technical-support">Technical Support</MenuItem>
           <MenuItem value="assembly-furniture">Assembly Furniture</MenuItem>
         </Select>
       </FormControl>
-      <p>   </p>
+      <p>   </p> {/*Box to write down request details */}
       <TextField
         label="Details"
         multiline
@@ -53,12 +53,12 @@ const Request = () => {
       />
       <p>   </p>
       <TextField
-        label="Payment"
+        label="Willing to Pay $"
         fullWidth
         value={payment}
         onChange={(e) => setPayment(e.target.value)}
       />
-      <p>   </p>
+      <p>   </p> {/*Calendar day/time selection */}
       <DatePicker
         
         selected={selectedDate}

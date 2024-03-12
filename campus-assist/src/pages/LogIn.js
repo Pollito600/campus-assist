@@ -8,8 +8,7 @@ class LogIn extends React.Component {
   componentDidCatch(error, errorInfo) {
     // Handle the error or log it for debugging
     console.error(error);
-    // You can also display a fallback UI or redirect to an error page
-    // this.setState({ hasError: true });
+    
   }
 
   render() {
@@ -18,7 +17,7 @@ class LogIn extends React.Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>CAMPUS-ASSIST</p>
-          // calling SignIn from SignIn component
+          {/* calling SignIn from SignIn component*/}
           <SignIn /> 
           <AuthDetails />
           <p></p>

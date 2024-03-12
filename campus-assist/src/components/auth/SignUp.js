@@ -39,7 +39,7 @@ const SignUp = () => {
       setSuccessMessage('');
     }
   };
-
+// Visual message to request email and password to create account
   return (
     <div className="sign-in-container">
       <form onSubmit={handleSignUp}>

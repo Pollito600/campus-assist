@@ -1,5 +1,5 @@
 //SignUp Page
-// src/App.js
+
 import React from 'react';
 import SignUp from './components/auth/SignUp';
 import AuthDetails from './components/AuthDetails';
