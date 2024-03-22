@@ -7,7 +7,7 @@ import logo from './assets/logo2_1.png';
 import './App.css';
 
 
-function SignUp() {
+function Signup() {
   return (
     <div className="signup">
       
@@ -23,4 +23,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Signup;

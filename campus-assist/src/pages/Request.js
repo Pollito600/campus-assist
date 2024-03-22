@@ -1,11 +1,12 @@
 // Request.js
 import React, { useState } from "react";
+import PropTypes from "prop-types"; // Import PropTypes for prop validation
 import { TextField, Button, Select, MenuItem, InputLabel, FormControl } from "@mui/material";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import '../styles/Request.css'; // Import the CSS file for styling
+import "../styles/Request.css";
 
-const Request = () => {
+const Request = ({ addPost }) => {
   const [selectedService, setSelectedService] = useState("");
   const [details, setDetails] = useState("");
   const [payment, setPayment] = useState("");
@@ -16,16 +17,25 @@ const Request = () => {
   };
 
   const handleSubmit = () => {
-    // Implement your logic to handle the form submission
-    console.log("Service:", selectedService);
-    console.log("Details:", details);
-    console.log("Payment:", payment);
-    console.log("Selected Date:", selectedDate);
-    // Add your logic to submit the request
+    const newPost = {
+      selectedService,
+      details,
+      payment,
+      selectedDate
+    };
+
+    // Call the addPost function passed from the parent component
+    addPost(newPost);
+
+    // Clear the form fields after submission
+    setSelectedService("");
+    setDetails("");
+    setPayment("");
+    setSelectedDate(null);
   };
 
   return (
-    <div className="centered-container"> {/* Add a container with centered styling */}
+    <div className="centered-container">
       <h1>Service Request</h1>
       <FormControl fullWidth>
         <InputLabel id="service-label">Select Service</InputLabel>
@@ -53,14 +63,13 @@ const Request = () => {
       />
       <p>   </p>
       <TextField
-        label="Payment"
+        label="Willing to Pay"
         fullWidth
         value={payment}
         onChange={(e) => setPayment(e.target.value)}
       />
       <p>   </p>
       <DatePicker
-        
         selected={selectedDate}
         onChange={handleDateChange}
         showTimeSelect
@@ -76,6 +85,11 @@ const Request = () => {
       </Button>
     </div>
   );
+};
+
+// Define prop types for addPost function
+Request.propTypes = {
+  addPost: PropTypes.func.isRequired,
 };
 
 export default Request;

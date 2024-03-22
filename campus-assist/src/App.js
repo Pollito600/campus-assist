@@ -12,6 +12,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Logout from './components/auth/Logout';
 import Request from './pages/Request';
+import Posts from './pages/Posts';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/login" element={<SignIn />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/requestservice" element={<Request />} />
+            <Route path="/posts" element={<Posts />} />
           </Routes>
         </Router>
       </AuthProvider>

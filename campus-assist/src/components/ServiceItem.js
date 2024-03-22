@@ -1,5 +1,5 @@
-// ServiceItem.js
 import React from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 import { Link } from "react-router-dom";
 
 function ServiceItem({ image, name }) {
@@ -13,5 +13,11 @@ function ServiceItem({ image, name }) {
     </div>
   );
 }
+
+// Add prop type validation for image and name
+ServiceItem.propTypes = {
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};
 
 export default ServiceItem;

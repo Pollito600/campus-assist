@@ -6,12 +6,13 @@ import {getAuth} from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDrfC5tyeYzkBWNbroj9LifeP7ob8dd9-s",
-  authDomain: "campus-assist-b4220.firebaseapp.com",
-  projectId: "campus-assist-b4220",
-  storageBucket: "campus-assist-b4220.appspot.com",
-  messagingSenderId: "811129780495",
-  appId: "1:811129780495:web:ea1f0dfc2a642bc904267a"
+  apiKey: "AIzaSyDPPjsbvbwjYfqteuAouGpcAxRcWwpFyvM",
+  authDomain: "campus-assist-49dde-6e38e.firebaseapp.com",
+  projectId: "campus-assist-49dde",
+  storageBucket: "campus-assist-49dde.appspot.com",
+  messagingSenderId: "157729141933",
+  appId: "1:157729141933:web:11af78fcacd6a0ab304224",
+  measurementId: "G-J4HVPE4CNH"
 };
 
 // Initialize Firebase
