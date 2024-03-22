@@ -1,3 +1,4 @@
+// Contact page 
 import React from "react";
 import ContactGirl from "../assets/three students sitting.jpg";
 import "../styles/Contact.css";

@@ -17,11 +17,11 @@ import Posts from './pages/Posts';
 function App() {
   return (
     <div className="App">
-      {/* Wrap your entire application with AuthProvider */}
+      {/* Wrap application with AuthProvider for authentication */}
       <AuthProvider>
         <Router>
           <Navbar />
-          <Routes>
+          <Routes> {/* Creating routes to all the pages */}
             <Route path="/" element={<Home />} />
             <Route path="/service" element={<Service />} />
             <Route path="/about" element={<About />} />

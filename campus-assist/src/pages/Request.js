@@ -44,15 +44,15 @@ const Request = ({ addPost }) => {
           id="service-select"
           value={selectedService}
           label="Select Service"
-          onChange={(e) => setSelectedService(e.target.value)}
-        >
+          onChange={(e) => setSelectedService(e.target.value)} 
+        > {/*Drop down menu */}
           <MenuItem value="moving">Moving</MenuItem>
           <MenuItem value="basic-reparation">Basic Reparation</MenuItem>
           <MenuItem value="technical-support">Technical Support</MenuItem>
           <MenuItem value="assembly-furniture">Assembly Furniture</MenuItem>
         </Select>
       </FormControl>
-      <p>   </p>
+      <p>   </p> {/*Box to write down request details */}
       <TextField
         label="Details"
         multiline
@@ -68,7 +68,7 @@ const Request = ({ addPost }) => {
         value={payment}
         onChange={(e) => setPayment(e.target.value)}
       />
-      <p>   </p>
+      <p>   </p> {/*Calendar day/time selection */}
       <DatePicker
         selected={selectedDate}
         onChange={handleDateChange}

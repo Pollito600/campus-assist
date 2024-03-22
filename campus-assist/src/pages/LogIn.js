@@ -8,8 +8,7 @@ class LogIn extends React.Component {
   componentDidCatch(error) {
     // Handle the error or log it for debugging
     console.error(error);
-    // You can also display a fallback UI or redirect to an error page
-    // this.setState({ hasError: true });
+    
   }
 
   render() {

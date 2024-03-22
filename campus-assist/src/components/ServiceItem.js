@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function ServiceItem({ image, name }) {
   return (
     <div className="ServiceItem">
-      {/* Use Link component to wrap the image and set "to" attribute to the request-service page path */}
+      {/* Link the images to the request-service page path by clicking on the image*/}
       <Link to="/requestservice">
         <div style={{ backgroundImage: `url('${image}')` }}> </div>
       </Link>

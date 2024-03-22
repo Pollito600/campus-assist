@@ -1,3 +1,5 @@
+
+//About us page and basic overview of the website
 import React from "react";
 import MultipleStudents from "../assets/UTA students4.jpeg";
 import "../styles/About.css";

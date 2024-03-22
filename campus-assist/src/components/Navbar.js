@@ -24,7 +24,7 @@ function Navbar() {
             <Link to="/logout">Logout</Link> 
           </>
         ) : (
-          <>
+          <>{/* Show "LogIn" and "Signup" on left side if user hasn't log in */}
             <Link to="/login">LogIn </Link>
             <Link to="/signup">SignUp </Link>
           </>
@@ -46,7 +46,7 @@ function Navbar() {
           )}
         </div>
       </div>
-      <div className="rightSide">
+      <div className="rightSide"> {/* Show "Home, AboutUs and Contact Us" links on right side of NavBar by default */}
         <Link to="/">Home </Link>
         <Link to="/about">About Us </Link>
         <Link to="/contact">Contact Us </Link>

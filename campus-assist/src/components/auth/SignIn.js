@@ -15,7 +15,7 @@ const SignIn = () => {
 
   const signIn = (e) => {
     e.preventDefault();
-
+// Verify email comes from @mavs.uta.edu
     if (email.endsWith('@mavs.uta.edu')) {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -39,9 +39,9 @@ const SignIn = () => {
       setSuccessMessage('');
     }
   };
-
+// Visual message to request email and password
   return (
-    <div className="sign-in-container">
+    <div className="sign-in-container"> 
       <form onSubmit={signIn}>
         <h1>Log In to your Account</h1>
         <input
