@@ -1,45 +1,50 @@
 /* Request.css */
 .centered-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0 500px; /* Add margin to the sides */
-  }
-  
-  .react-datepicker {
-    display: inline-block;
-    width: 100%; /* Set the width to 100% to match Text Field boxes */
-    margin-top: 8px; /* Adjust the margin to maintain spacing */
-  }
-  
-  .react-datepicker__header {
-    background-color: rgb(153, 158, 161);
-    color: white;
-  }
-  
-  .react-datepicker__month,
-  .react-datepicker__year,
-  .react-datepicker__day-name {
-    color: white; /* Set month, year, and day names color to white */
-  }
-  
-  .react-datepicker__day {
-    color: black; /* Set day numbers color to black */
-  }
-  
-  .react-datepicker__time-name {
-    color: white; /* Set time names color to white */
-  }
-  
-  .react-datepicker__day--selected {
-    background-color: #121619;
-    color: white;
-  }
-  
-  .react-datepicker__day--keyboard-selected {
-    background-color: #121619;
-    color: white;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0 10%; /* Add margin to the sides */
+}
+
+.react-datepicker {
+  display: inline-block;
+  width: 80%; /* Set the width to 80% to match Text Field boxes */
+  margin-top: 8px; /* Adjust the margin to maintain spacing */
+}
+
+/* Add this style to match the size of other text fields */
+input[type="file"] {
+  width: 80%; /* Set the width to 80% to match Text Field boxes */
+  margin-top: 8px; /* Adjust the margin to maintain spacing */
+}
+
+.react-datepicker__header {
+  background-color: rgb(153, 158, 161);
+  color: white;
+}
+
+.react-datepicker__month,
+.react-datepicker__year,
+.react-datepicker__day-name {
+  color: white; /* Set month, year, and day names color to white */
+}
+
+.react-datepicker__day {
+  color: black; /* Set day numbers color to black */
+}
+
+.react-datepicker__time-name {
+  color: white; /* Set time names color to white */
+}
+
+.react-datepicker__day--selected {
+  background-color: #121619;
+  color: white;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #121619;
+  color: white;
+}

@@ -1,6 +1,7 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+
+import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import React, { useState } from "react";
-import { auth } from "../../FirebaseConfig";
+import  {auth}  from "../../FirebaseConfig";
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
 
@@ -20,8 +21,24 @@ const SignUp = () => {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           console.log(userCredential);
-          setSuccessMessage(`Successfully registered with email: ${email}`);
-          setErrorMessage('');
+          //setSuccessMessage(`Successfully registered with email: ${email}`);
+          //setErrorMessage('');
+          
+          sendEmailVerification(userCredential.user)
+          .then(() => {
+            console.log("Verification email sent");
+    
+            // Provide a message about email verification
+            setSuccessMessage(
+              "Verification email sent. Please check your inbox to verify your account."
+            );
+          })
+          .catch((error) => {
+            console.log("Error sending verification email:", error);
+            setErrorMessage(
+              "Failed to send verification email. Please try again later."
+            );
+          });
 
           // Call the login function from AuthContext
           login(userCredential.user);

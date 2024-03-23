@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../FirebaseConfig';
+import  {auth}  from '../../FirebaseConfig';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
 
@@ -15,19 +15,29 @@ const SignIn = () => {
 
   const signIn = (e) => {
     e.preventDefault();
-// Verify email comes from @mavs.uta.edu
+    // Verify email comes from @mavs.uta.edu
     if (email.endsWith('@mavs.uta.edu')) {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          console.log(userCredential);
-          setSuccessMessage(`Successfully logged in with email: ${email}`);
-          setErrorMessage('');
+          const user = userCredential.user;
 
-          // Call the login function from AuthContext
-          login(userCredential.user);
+          // Check if email is verified
+          if (user.emailVerified) {
+            // Email is verified, proceed with login
+            console.log(userCredential);
+            setSuccessMessage(`Successfully logged in with email: ${email}`);
+            setErrorMessage('');
 
-          // Redirect to the services page upon successful sign-in
-          navigate("/service");
+            // Call the login function from AuthContext
+            login(user);
+
+            // Redirect to the services page upon successful sign-in
+            navigate('/service');
+          } else {
+            // Email is not verified
+            setErrorMessage('Please verify your email before logging in.');
+            setSuccessMessage('');
+          }
         })
         .catch((error) => {
           console.log(error);
