@@ -1,7 +1,6 @@
-
 import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import React, { useState } from "react";
-import  {auth}  from "../../FirebaseConfig";
+import { auth } from "../../FirebaseConfig";
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
 
@@ -21,24 +20,23 @@ const SignUp = () => {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           console.log(userCredential);
-          //setSuccessMessage(`Successfully registered with email: ${email}`);
-          //setErrorMessage('');
-          
-          sendEmailVerification(userCredential.user)
-          .then(() => {
-            console.log("Verification email sent");
+
+          // Send email verification
+          sendEmailVerification(auth.currentUser)
+            .then(() => {
+              console.log("Verification email sent");
     
-            // Provide a message about email verification
-            setSuccessMessage(
-              "Verification email sent. Please check your inbox to verify your account."
-            );
-          })
-          .catch((error) => {
-            console.log("Error sending verification email:", error);
-            setErrorMessage(
-              "Failed to send verification email. Please try again later."
-            );
-          });
+              // Provide a message about email verification
+              setSuccessMessage(
+                "Verification email sent. Please check your inbox to verify your account."
+              );
+            })
+            .catch((error) => {
+              console.log("Error sending verification email:", error);
+              setErrorMessage(
+                "Failed to send verification email. Please try again later."
+              );
+            });
 
           // Call the login function from AuthContext
           login(userCredential.user);
@@ -48,7 +46,11 @@ const SignUp = () => {
         })
         .catch((error) => {
           console.log(error);
-          setErrorMessage('Invalid email or password');
+          if (error.code === 'auth/email-already-in-use') {
+            setErrorMessage('An account with this email already exists. Please log in.');
+          } else {
+            setErrorMessage('Failed to sign up. Please try again later.');
+          }
           setSuccessMessage('');
         });
     } else {
