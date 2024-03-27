@@ -1,8 +1,8 @@
 import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from "../../FirebaseConfig";
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../AuthContext';
+//import { useNavigate } from 'react-router-dom';
+//import { useAuth } from '../../AuthContext';
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -10,8 +10,8 @@ const SignUp = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   
-  const navigate = useNavigate();
-  const { login } = useAuth(); // Access the login function from AuthContext
+  //const navigate = useNavigate();
+  //const { login } = useAuth(); // Access the login function from AuthContext
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -24,12 +24,13 @@ const SignUp = () => {
           // Send email verification
           sendEmailVerification(auth.currentUser)
             .then(() => {
-              console.log("Verification email sent");
-    
               // Provide a message about email verification
               setSuccessMessage(
                 "Verification email sent. Please check your inbox to verify your account."
               );
+              
+              // Redirect to the LogIn page upon successful sign-up
+              //navigate("/login");
             })
             .catch((error) => {
               console.log("Error sending verification email:", error);
@@ -39,10 +40,7 @@ const SignUp = () => {
             });
 
           // Call the login function from AuthContext
-          login(userCredential.user);
-
-          // Redirect to the LogIn page upon successful sign-up
-          navigate("/login");
+          //login(userCredential.user);
         })
         .catch((error) => {
           console.log(error);
@@ -58,7 +56,8 @@ const SignUp = () => {
       setSuccessMessage('');
     }
   };
-// Visual message to request email and password to create account
+
+  // Visual message to request email and password to create account
   return (
     <div className="sign-in-container">
       <form onSubmit={handleSignUp}>
