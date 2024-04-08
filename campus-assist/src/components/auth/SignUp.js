@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from "../../FirebaseConfig";
+import '../../styles/SignUp.css';
 //import { useNavigate } from 'react-router-dom';
 //import { useAuth } from '../../AuthContext';
 
@@ -59,9 +60,9 @@ const SignUp = () => {
 
   // Visual message to request email and password to create account
   return (
-    <div className="sign-in-container">
+    <div className="sign-up-container">
       <form onSubmit={handleSignUp}>
-        <h1>Create Account</h1>
+        <h1>Create an Account</h1>
         <input
           type="email"
           placeholder="Enter your email"
