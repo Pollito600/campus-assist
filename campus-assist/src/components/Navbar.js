@@ -46,10 +46,11 @@ function Navbar() {
           )}
         </div>
       </div>
-      <div className="rightSide"> {/* Show "Home, AboutUs and Contact Us" links on right side of NavBar by default */}
+      <div className="rightSide"> {/* Show "Home, AboutUs, Contact Us, and Posts" links on right side of NavBar by default */}
         <Link to="/">Home </Link>
         <Link to="/about">About Us </Link>
         <Link to="/contact">Contact Us </Link>
+        {user && <Link to="/posts">Posts </Link>} {/* Show Posts tab if user is authenticated */}
         <button onClick={toggleNavbar}></button>
       </div>
     </div>

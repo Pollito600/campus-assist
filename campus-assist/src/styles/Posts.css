@@ -1,0 +1,22 @@
+/* Posts.css */
+.post {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .post h3 {
+    margin-top: 0;
+  }
+  
+  .post p {
+    margin-bottom: 10px;
+  }
+  
+  .post img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  

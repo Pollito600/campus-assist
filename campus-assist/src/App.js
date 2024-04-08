@@ -1,5 +1,5 @@
-// src/App.js
-import './App.css';
+// App.js
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from '../src/AuthContext'; // Import the AuthProvider
@@ -12,7 +12,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Logout from './components/auth/Logout';
 import Request from './pages/Request';
-//import Posts from './pages/Posts';
+import Posts from './pages/Posts'; // Import the Posts component
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
             <Route path="/login" element={<SignIn />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/requestservice" element={<Request />} />
-            {/*<Route path="/posts" element={<Posts />} />*/}
+            <Route path="/posts" element={<Posts />} /> {/* Route for Posts component */}
           </Routes>
         </Router>
       </AuthProvider>
