@@ -1,0 +1,14 @@
+.logout-container {
+    display: flex;
+    flex-direction: column; /* Arrange children vertically */
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Center the container vertically */
+  }
+  
+  .logout-button {
+    font-size: 1.5em; /* Adjust the font size to make the button bigger */
+    padding: 10px 20px; /* Add padding for better appearance */
+    margin-top: 10px; /* Add margin to separate from the text */
+  }
+  

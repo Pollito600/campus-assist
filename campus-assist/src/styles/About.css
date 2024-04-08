@@ -7,7 +7,7 @@
 
 .aboutTop {
   width: 100%;
-  height: 45%;
+  height: 45%; /* Adjust height relative to viewport width */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,21 +17,23 @@
 .aboutBottom {
   display: flex;
   flex-direction: column;
-  height: 55%;
+  height: 35%;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 2em; /* Adjust margin using em units for better scalability */
 }
 
 .aboutBottom p {
-  width: 1200px;
+  width: 90%;
+  max-width: 1200px;
+  font-size: 25px; /* Adjust font size relative to viewport width */
 }
 
 .about .aboutBottom h1 {
   font-weight: 400;
-  font-size: 70px;
+  font-size: 70px; /* Adjust font size relative to viewport width */
   color: black;
-  height: 30px;
+  height: 3em; /* Adjust height using em units for better scalability */
   display: flex;
   justify-content: center;
-  transform: translateY(-40px);
+  transform: translateY(-0.5em); /* Adjust transform using em units for better scalability */
 }

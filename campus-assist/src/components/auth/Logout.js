@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuth } from '../../AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
+import '../../styles/Logout.css';
 
 const Logout = () => {
   const { user, logout } = useAuth();
@@ -19,12 +20,13 @@ const Logout = () => {
   };
 
   return (
-    <div>
+    <div  className="logout-container">
       {user ? (
         <>
           <h1>You are logged in as: {user.email}</h1>
+          <p></p>
           {/* Optionally include other user information */}
-          <button type="submit" onClick={handleLogout}>Log Out</button>
+          <button className="logout-button" type="submit" onClick={handleLogout}>Log Out</button>
         </>
       ) : (
         <>

@@ -6,12 +6,12 @@ import TechSupport from "../assets/technical-support.png";
 /* create list of  tasks and assign images to them to use them in the services page  */
 export const ServiceList = [
   {
-    name: "Assembly Furniture",
+    name: "Assemble Furniture",
     image: Sofa,
     
   },
   {
-    name: "Basic Reparations",
+    name: "Basic Repairs",
     image: Man,
     
   },
@@ -21,7 +21,7 @@ export const ServiceList = [
     
   },
   {
-    name: "Technical Support",
+    name: "Tech Support",
     image: TechSupport,
     
   },
