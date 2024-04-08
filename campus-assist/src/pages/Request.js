@@ -1,8 +1,9 @@
 // Request.js
 import React, { useState } from "react";
-import { TextField, Button, Select, MenuItem, InputLabel, FormControl, } from "@mui/material";
+import { TextField, Button, Select, MenuItem, InputLabel, FormControl } from "@mui/material"; // Import TextField component
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { format } from 'date-fns'; // Import format function from date-fns
 import "../styles/Request.css";
 import { app } from "../FirebaseConfig";
 import { getDatabase, ref, set, push } from "firebase/database";
@@ -18,9 +19,12 @@ const Request = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null); // State for selected image
 
-  const handleDateChange = (date) => { setSelectedDate(date);
+  const handleDateChange = (date) => { 
+    setSelectedDate(date);
   };
-  const handleImageChange = (event) => { setSelectedImage(event.target.files[0]);
+
+  const handleImageChange = (event) => { 
+    setSelectedImage(event.target.files[0]);
   };
 
   const handleSubmit = async (event) => {
@@ -32,7 +36,7 @@ const Request = () => {
     const newPost = push(ref(db, "Requests/Posts"));
 
     try {
-      const dateToRecord = selectedDate.toISOString();// convert to ISO string
+      const dateToRecord = format(selectedDate, "MM/dd/yy hh:mm a"); // Format date and time
 
       let data = {
         Service: selectedService,
@@ -42,17 +46,16 @@ const Request = () => {
       };
 
       // If a picture is required and selected, handle its upload
-    if (imageServices.includes(selectedService) && selectedImage) {
-      const imageRef = storageRef(storage, `Images/${uuidv4()}.jpg`); // Reference to the image in Firebase Storage
-      await uploadBytes(imageRef, selectedImage); // Upload image to Firebase Storage
-      const imageUrl = await imageRef.getDownloadURL(); // Get the download URL of the uploaded image
-      data.Picture = imageUrl; // Store the image URL in the post
-    }
+      if (imageServices.includes(selectedService) && selectedImage) {
+        const imageRef = storageRef(storage, `Images/${uuidv4()}.jpg`); // Reference to the image in Firebase Storage
+        await uploadBytes(imageRef, selectedImage); // Upload image to Firebase Storage
+        const imageUrl = await imageRef.getDownloadURL(); // Get the download URL of the uploaded image
+        data.Picture = imageUrl; // Store the image URL in the post
+      }
 
       await set(newPost, data);
 
       alert("Data saved successfully");
-      //addPost(newPost);
 
       // Clear form fields
       setSelectedService("");
@@ -61,7 +64,7 @@ const Request = () => {
       setSelectedDate(null);
       setSelectedImage(null);
     } catch (error) {
-      alert("Error: ", error.message);
+      alert("Error: " + error.message);
     }
   };
 
@@ -77,10 +80,10 @@ const Request = () => {
           label="Select Service"
           onChange={(e) => setSelectedService(e.target.value)} 
         > {/*Drop down menu */}
-          <MenuItem value="moving">Moving</MenuItem>
-          <MenuItem value="basic-reparation">Basic Reparation</MenuItem>
-          <MenuItem value="technical-support">Technical Support</MenuItem>
-          <MenuItem value="assembly-furniture">Assembly Furniture</MenuItem>
+          <MenuItem value="Moving">Moving</MenuItem>
+          <MenuItem value="Basic Reparation">Basic Reparation</MenuItem>
+          <MenuItem value="Technical Support">Technical Support</MenuItem>
+          <MenuItem value="Assembly Furniture">Assembly Furniture</MenuItem>
         </Select>
       </FormControl>
       <p>   </p> {/*Box to write down request details */}
@@ -94,11 +97,11 @@ const Request = () => {
       />
       <p>   </p>
       
-        <TextField
-          type="file"
-          label="Upload Picture"
-          onChange={handleImageChange}
-        />
+      <input
+        type="file"
+        onChange={handleImageChange}
+        accept="image/*"
+      />
       
       <p>   </p>
       <TextField
@@ -112,11 +115,11 @@ const Request = () => {
         selected={selectedDate}
         onChange={handleDateChange}
         showTimeSelect
-        timeFormat="HH:mm"
+        timeFormat="hh:mm aa" // Format time with AM/PM
         timeIntervals={15}
         timeCaption="Time"
-        dateFormat="MMMM d, yyyy h:mm aa"
-        placeholderText="Select Service Date and Time"
+        dateFormat="MMMM d, yyyy h:mm aa" // Display selected date and time with AM/PM
+        placeholderText="Select Date and Time"
       />
       <p>   </p>
       <Button variant="contained" onClick={handleSubmit}>
@@ -126,10 +129,5 @@ const Request = () => {
     </div>
   );
 };
-
-// Define prop types for addPost function
-//Request.propTypes = {
-  //addPost: PropTypes.func.isRequired,
-//};
 
 export default Request;
