@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/aut
 import { auth } from '../../FirebaseConfig';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
+import '../../styles/SignIn.css';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
