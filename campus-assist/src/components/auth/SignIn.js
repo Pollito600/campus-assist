@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import  {auth}  from '../../FirebaseConfig';
+import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth'; // Import sendPasswordResetEmail from Firebase
+import { auth } from '../../FirebaseConfig';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
 
@@ -9,6 +9,8 @@ const SignIn = () => {
   const [password, setPassword] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [resetEmail, setResetEmail] = useState(''); // State for reset email
+  const [showResetForm, setShowResetForm] = useState(false); // State for showing reset form
 
   const navigate = useNavigate();
   const { login } = useAuth(); // Access the login function from AuthContext
@@ -39,8 +41,7 @@ const SignIn = () => {
             setSuccessMessage('');
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => { // Removed unused 'error' variable
           setErrorMessage('Invalid email or password.');
           setSuccessMessage('');
         });
@@ -49,7 +50,25 @@ const SignIn = () => {
       setSuccessMessage('');
     }
   };
-// Visual message to request email and password
+
+  const handleForgotPassword = () => {
+    setShowResetForm(true);
+  };
+
+  const sendResetPasswordEmail = (e) => {
+    e.preventDefault();
+    sendPasswordResetEmail(auth, resetEmail) // Use sendPasswordResetEmail function from Firebase
+      .then(() => {
+        setSuccessMessage('Password reset email sent. Check your inbox.');
+        setErrorMessage('');
+        setShowResetForm(false);
+      })
+      .catch(() => { // Removed unused 'error' variable
+        setErrorMessage('Error sending password reset email.');
+        setSuccessMessage('');
+      });
+  };
+
   return (
     <div className="sign-in-container"> 
       <form onSubmit={signIn}>
@@ -69,7 +88,20 @@ const SignIn = () => {
           style={{ color: 'black' }}
         />
         <button type="submit">Log In</button>
+        <button type="button" onClick={handleForgotPassword}>Forgot Password?</button>
       </form>
+      {showResetForm && (
+        <form onSubmit={sendResetPasswordEmail}>
+          <input
+            type="email"
+            placeholder="Enter your email to reset password"
+            value={resetEmail}
+            onChange={(e) => setResetEmail(e.target.value)} // Handle input change for reset email
+            style={{ color: 'black' }}
+          />
+          <button type="submit">Reset Password</button>
+        </form>
+      )}
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
     </div>
