@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BannerImage from "../assets/move-in-detail-2.jpg";
+import BannerImage from "../assets/AdobeStock1.jpeg";
 import "../styles/Home.css";
 
 function Home() {

@@ -1,14 +1,13 @@
 // Contact page 
 import React from "react";
-import ContactGirl from "../assets/three students sitting.jpg";
+import Contactimg from "../assets/AdobeStock2.jpeg";
 import "../styles/Contact.css";
 
 function Contact() {
   return (
     <div className="contact">
-      <div
-        className="leftSide"
-        style={{ backgroundImage: `url('${ContactGirl}')` }}
+      <div className="leftSide"
+        style={{ backgroundImage: `url('${Contactimg}')` }}
       ></div>
       <div className="rightSide">
         <h1> Contact Us</h1>
