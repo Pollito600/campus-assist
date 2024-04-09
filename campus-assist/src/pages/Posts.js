@@ -1,4 +1,3 @@
-// Posts.js
 import React, { useState, useEffect } from "react";
 import { app } from "../FirebaseConfig";
 import { getDatabase, ref, onValue } from "firebase/database";
@@ -6,6 +5,8 @@ import "../styles/Posts.css"; // Import CSS file for post styling
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredPosts, setFilteredPosts] = useState([]);
 
   useEffect(() => {
     const db = getDatabase(app);
@@ -20,8 +21,10 @@ const Posts = () => {
           ...postData[key],
         }));
         setPosts(postList);
+        setFilteredPosts(postList); // Initialize filtered posts with all posts
       } else {
         setPosts([]);
+        setFilteredPosts([]);
       }
     });
 
@@ -31,11 +34,37 @@ const Posts = () => {
     };
   }, []);
 
+  // Function to handle search query change
+  const handleSearchChange = (e) => {
+    const { value } = e.target;
+    setSearchQuery(value);
+    filterPosts(value);
+  };
+
+  // Function to filter posts based on search query
+  const filterPosts = (query) => {
+    const filtered = posts.filter(
+      (post) =>
+        post.Service.toLowerCase().includes(query.toLowerCase()) ||
+        post.Date.toLowerCase().includes(query.toLowerCase()) ||
+        post.Payment.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredPosts(filtered);
+  };
+
   return (
     <div>
       <h1>Posts</h1>
+      {/* Search bar */}
+      <input
+        type="text"
+        className="search-bar" // Apply search-bar class
+        placeholder="Search Posts by Service, Date, or Amount"
+        value={searchQuery}
+        onChange={handleSearchChange}
+      />
       <div className="posts-container">
-        {posts.map((post) => (
+        {filteredPosts.map((post) => (
           <div className="post" key={post.id}>
             <h3>{post.Service}</h3>
             <p>{post.Details}</p>

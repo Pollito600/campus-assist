@@ -1,4 +1,28 @@
 /* Posts.css */
+
+/* Search bar styles */
+.search-bar {
+  width: 20%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 40%;
+  margin-bottom: 20px;
+  font-size: 14px;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  color: rgba(255, 255, 255, 0.596); /* Smoky white color with opacity */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+}
+
+.search-bar::placeholder {
+  color: rgba(255, 255, 255, 0.658); /* Smoky white color for placeholder text */
+}
+
+/* Adjust color of input text when focused */
+.search-bar:focus {
+  color: rgba(255, 255, 255, 0.9); /* Lighter smoky white color when focused */
+}
+
 .posts-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 columns */
