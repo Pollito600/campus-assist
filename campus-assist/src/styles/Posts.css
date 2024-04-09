@@ -1,22 +1,52 @@
 /* Posts.css */
+.posts-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 20px; /* Gap between columns */
+}
+
 .post {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post h3 {
+  margin-top: 0;
+}
+
+.post p {
+  margin-bottom: 10px;
+}
+
+.post img {
+  max-width: 200px; /* Maximum width */
+  max-height: 200px; /* Maximum height */
+  width: 100%; /* Take up full width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px;
+  align-self: center; /* Center image horizontally */
+}
+
+/* Center the title */
+h1 {
+  font-size: 34px;
+  text-align: center;
+}
+
+/* Adjust title size based on window width */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 24px; /* Adjust font size for smaller screens */
   }
-  
-  .post h3 {
-    margin-top: 0;
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 20px; /* Adjust font size for even smaller screens */
   }
-  
-  .post p {
-    margin-bottom: 10px;
-  }
-  
-  .post img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
+}

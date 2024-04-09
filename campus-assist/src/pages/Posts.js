@@ -34,7 +34,7 @@ const Posts = () => {
   return (
     <div>
       <h1>Posts</h1>
-      <div>
+      <div className="posts-container">
         {posts.map((post) => (
           <div className="post" key={post.id}>
             <h3>{post.Service}</h3>
