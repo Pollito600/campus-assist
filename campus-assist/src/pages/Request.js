@@ -91,9 +91,9 @@ const Request = () => {
           onChange={(e) => setSelectedService(e.target.value)} 
         >
           <MenuItem value="Moving">Moving</MenuItem>
-          <MenuItem value="Basic Reparation">Basic Reparation</MenuItem>
-          <MenuItem value="Technical Support">Technical Support</MenuItem>
-          <MenuItem value="Assembly Furniture">Assembly Furniture</MenuItem>
+          <MenuItem value="Basic Repair">Basic Repair</MenuItem>
+          <MenuItem value="Tech Support">Tech Support</MenuItem>
+          <MenuItem value="Assemble Furniture">Assemble Furniture</MenuItem>
         </Select>
       </FormControl>
       <p>   </p>
