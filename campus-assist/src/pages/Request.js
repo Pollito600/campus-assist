@@ -7,10 +7,8 @@ import { format } from 'date-fns';
 import "../styles/Request.css";
 import { app } from "../FirebaseConfig";
 import { getDatabase, ref, set, push } from "firebase/database";
-import { v4 as uuidv4 } from "uuid";
+//import { v4 as uuidv4 } from "uuid";
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
-
-const imageServices = ["Basic Reparation", "Assembly Furniture"];
 
 const Request = () => {
   const [selectedService, setSelectedService] = useState("");
@@ -18,6 +16,7 @@ const Request = () => {
   const [payment, setPayment] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null); // State to store the uploaded image URL
 
   const handleDateChange = (date) => { 
     setSelectedDate(date);
@@ -29,51 +28,62 @@ const Request = () => {
 
   const handleClearImage = () => {
     setSelectedImage(null);
-    // Reset the file input value to clear the selected file name
-    document.getElementById("file-input").value = "";
+    setImageUrl(null); // Clear the image URL state
+
+    document.getElementById("file-input").value = ""; // Reset the file input value to clear the selected file name
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault(); 
-
+  
     const db = getDatabase(app);
     const storage = getStorage(app);
-
     const newPost = push(ref(db, "Requests/Posts"));
-
+  
     try {
       const dateToRecord = format(selectedDate, "MM/dd/yy hh:mm a");
-
+  
       let data = {
+        
         Service: selectedService,
         Details: details,
         Payment: payment,
         Date: dateToRecord,
       };
-
-      if (imageServices.includes(selectedService) && selectedImage) {
-        const imageRef = storageRef(storage, `Images/${uuidv4()}.jpg`);
-        await uploadBytes(imageRef, selectedImage);
-        const imageUrl = await getDownloadURL(imageRef);
-        data.Picture = imageUrl;
-      }
-
+  
+      
+        try {
+          const imageRef = storageRef(storage, `Images/${selectedImage.name}`);
+          await uploadBytes(imageRef, selectedImage);
+          const uploadedImageUrl = await getDownloadURL(imageRef);
+          data.Picture = uploadedImageUrl;
+          setImageUrl(uploadedImageUrl); // Update the state with the uploaded URL for verification
+        } catch (error) {
+          console.error("Error uploading image:", error);
+          alert("Error uploading image. Please try again.");
+        }
+      
       await set(newPost, data);
-
+      console.log("Data saved successfully"); // Log success message
+  
       alert("Data saved successfully");
-
+  
       // Clear all fields after successful submission
       setSelectedService("");
       setDetails("");
       setPayment("");
       setSelectedDate(null);
       setSelectedImage(null);
+      setImageUrl(null);
+
+
       // Reset the file input value to clear the selected file and its name
       const fileInput = document.getElementById("file-input");
       fileInput.value = "";
       fileInput.type = "";
       fileInput.type = "file";
     } catch (error) {
+      console.error("Error:", error); // Log the error for debugging
       alert("Error: " + error.message);
     }
   };
@@ -111,7 +121,7 @@ const Request = () => {
         id="file-input"
         type="file"
         onChange={handleImageChange}
-        accept="image/*"
+        accept="Images/*"
       />
       {selectedImage && (
         <Button variant="outlined" onClick={handleClearImage}>
@@ -131,7 +141,7 @@ const Request = () => {
         onChange={handleDateChange}
         showTimeSelect
         timeFormat="hh:mm aa"
-        timeIntervals={15}
+        timeIntervals={30}
         timeCaption="Time"
         dateFormat="MMMM d, yyyy h:mm aa"
         placeholderText="Select Date and Time"
@@ -140,7 +150,9 @@ const Request = () => {
       <Button variant="contained" onClick={handleSubmit}>
         Submit Request
       </Button>
-      
+      {imageUrl && (  // Conditionally render the image if imageUrl is available
+          <img src={imageUrl} alt="Uploaded Image" />
+        )}
     </div>
   );
 };

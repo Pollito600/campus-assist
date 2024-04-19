@@ -10,7 +10,7 @@
 
 .service .serviceTitle {
   font-family: "Trebuchet MS", sans-serif;
-  font-size: 6vw; /* Adjust font size relative to viewport width */
+  font-size: 5vw; /* Adjust font size relative to viewport width */
 }
 
 .serviceList {

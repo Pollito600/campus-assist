@@ -10,13 +10,13 @@
 
 .react-datepicker {
   display: inline-block;
-  width: 80%; /* Set the width to 80% to match Text Field boxes */
-  margin-top: 8px; /* Adjust the margin to maintain spacing */
+  width: 100%; /* Set the width to 80% to match Text Field boxes */
+  margin-top: 10px; /* Adjust the margin to maintain spacing */
 }
 
 /* Add this style to match the size of other text fields */
 input[type="file"] {
-  width: 80%; /* Set the width to 80% to match Text Field boxes */
+  width: 100%; /* Set the width to 80% to match Text Field boxes */
   margin-top: 8px; /* Adjust the margin to maintain spacing */
 }
 

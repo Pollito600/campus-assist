@@ -70,7 +70,9 @@ const Posts = () => {
             <p>{post.Details}</p>
             <p>{post.Payment}</p>
             <p>{post.Date}</p>
-            {post.Picture && <img src={post.Picture} alt="Post" />}
+            <div className="image-container">
+              {post.Picture && <img src={post.Picture} alt="Post" className="post-image" />}
+            </div>
           </div>
         ))}
       </div>
