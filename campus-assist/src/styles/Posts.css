@@ -26,51 +26,87 @@
 .posts-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 columns */
-  gap: 20px; /* Gap between columns */
+  margin: 0 auto;
 }
 
 .post {
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 20px;
-  display: flex;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  /*display: flex;*/
   flex-direction: column;
   align-items: center;
+  background-color: #e4dede; /* Light gray background */
+  box-shadow: 0px 2px 5px rgba(27, 27, 27, 0.1); /* Subtle shadow */
+  max-width: 450px; /* Maximum width */
+  max-height: 450px; /* Maximum height */
+  overflow: auto; /* Add scroll if content overflows the container */
 }
 
 .post h3 {
-  margin-top: 0;
+  margin-top: 5px;
+  text-align: center;
+  margin-bottom: 5px;
 }
 
-.post p {
-  margin-bottom: 10px;
+/* Align post details to the left */
+.post p.details {
+  text-align: left;
+  font-size: 14px;
+  margin-top: 5px; /* Increase margin for better separation */
+  margin-left: 5px;
+  
+}
+
+//* Align post payment to the right */
+.post p.payment {
+  margin-bottom: 10px; /* Increase margin for better separation */
+  margin-left: 10px; /* Pushes the payment to the right */
+}
+
+/* Align post date to the left */
+.post p.date {
+  margin-bottom: 10px; /* Increase margin for better separation */
+  margin-right: 10px; /* Pushes the date to the left */
+}
+
+.payment-date-container {
+  display: flex;
+  justify-content: space-between; /* Distribute space between children */
+  width: 100%; /* Full width of container */
+  align-items:last baseline;
+  
 }
 
 .post img {
-  max-width: 200px; /* Maximum width */
-  max-height: 200px; /* Maximum height */
+  max-width: 380px; /* Maximum width */
+  max-height: 400px; /* Maximum height */
   width: 100%; /* Take up full width */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 5px;
+  height: 200px; /* Maintain aspect ratio */
+  border-radius: 10px;
   align-self: center; /* Center image horizontally */
+  object-fit: contain;
 }
 
 /* Center the title */
 h1 {
-  font-size: 34px;
+  font-size: 44px;
   text-align: center;
 }
 
 /* Adjust title size based on window width */
 @media screen and (max-width: 768px) {
   h1 {
-    font-size: 24px; /* Adjust font size for smaller screens */
+    font-size: 20px; /* Adjust font size for smaller screens */
   }
 }
 
 @media screen and (max-width: 480px) {
   h1 {
-    font-size: 20px; /* Adjust font size for even smaller screens */
+    font-size: 10px; /* Adjust font size for even smaller screens */
   }
 }

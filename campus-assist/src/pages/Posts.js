@@ -66,14 +66,17 @@ const Posts = () => {
       <div className="posts-container">
         {filteredPosts.map((post) => (
           <div className="post" key={post.id}>
-            <h3>{post.Service}</h3>
-            <p>{post.Details}</p>
-            <p>{post.Payment}</p>
-            <p>{post.Date}</p>
+          
             <div className="image-container">
               {post.Picture && <img src={post.Picture} alt="Post" className="post-image" />}
             </div>
-          </div>
+            <h3 className="service-title">{post.Service}</h3>
+            <p className="details">{post.Details}</p>
+            <div className="payment-date-container">
+              <p className="payment">${post.Payment}</p>
+              < p className="date">{post.Date}</p>
+            </div>
+        </div>
         ))}
       </div>
     </div>
