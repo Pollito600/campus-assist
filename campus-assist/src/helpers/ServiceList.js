@@ -8,22 +8,21 @@ export const ServiceList = [
   {
     name: "Assemble Furniture",
     image: Sofa,
-    
+    description: "Helping you assembly your furniture with care."
   },
   {
     name: "Basic Repairs",
     image: Man,
-    
+    description: "Helping you with basic repairs like painting, patching walls, installing frames, small leaks"
   },
   {
     name: "Moving",
     image: Moving,
-    
+    description: "Moving your belongings safely to your new home."
   },
   {
     name: "Tech Support",
     image: TechSupport,
-    
+    description: "Assisting you with any tech-related issues."
   },
-  
 ];

@@ -1,23 +1,31 @@
 import React from "react";
-import PropTypes from "prop-types"; // Import PropTypes
+import PropTypes from "prop-types"; 
 import { Link } from "react-router-dom";
 
-function ServiceItem({ image, name }) {
+function ServiceItem({ image, name, description }) {
   return (
     <div className="ServiceItem">
       {/* Link the images to the request-service page path by clicking on the image*/}
       <Link to="/requestservice">
-        <div style={{ backgroundImage: `url('${image}')` }}> </div>
+        {/* Use a div with background image style */}
+        <div style={{ backgroundImage: `url('${image}')`,     
+          }} 
+          title={description}> {/*Tooltip description*/}
+          
+        </div>
       </Link>
-      <h1>{name}</h1>
+      <div className="name">
+            <h2>{name}</h2>
+          </div>
     </div>
   );
 }
 
-// Add prop type validation for image and name
+// Add prop type validation for image, name, and description
 ServiceItem.propTypes = {
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default ServiceItem;

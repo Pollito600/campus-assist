@@ -16,6 +16,7 @@ function Service() {
               key={key}
               image={serviceItem.image}
               name={serviceItem.name}
+              description={serviceItem.description}
               
             />
           );

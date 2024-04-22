@@ -27,9 +27,9 @@
 .ServiceItem {
   border-radius: 4vw; /* Adjust border radius relative to viewport width */
   width: 100%;
-  height: auto;
+  height: 80%;
   max-width: 300px; /* Set maximum width for consistency */
-  margin: 5vw; /* Adjust margin relative to viewport width */
+  margin: 1vw; /* Adjust margin relative to viewport width */
   box-shadow: 0px 3px 5vw rgba(0, 0, 0, 0.2); /* Adjust box shadow relative to viewport width */
 }
 
@@ -43,14 +43,27 @@
   border-top-left-radius: 4vw; /* Adjust border radius relative to viewport width */
   border-top-right-radius: 4vw; /* Adjust border radius relative to viewport width */
   width: auto;
-  height: 60vw; /* Adjust height relative to viewport width */
-  max-height: 250px; /* Set maximum height for consistency */
-  background-position: center;
+  height: 10vw; /* Adjust height relative to viewport width */
+  max-height: 300px; /* Set maximum height for consistency */
+  background-position: center top ;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 57% ;
+}
+/* Overlay styling */
+
+
+/* Service name styling */
+.ServiceItem .name {
+  bottom: 0px; /* Adjust position as needed */
+  left: 0px; /* Adjust position as needed */
+  color: rgb(255, 255, 255);
+  background-color: rgba(149, 146, 146, 0.752); /* Semi-transparent background */
+  padding: 5px;
+  border-radius: 4vw;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
-.ServiceItem h1,
-.ServiceItem p {
-  margin: 0; /* Remove default margin */
+.ServiceItem h2 {
+position:center;  
+  margin: 50px; /* Remove default margin */
 }
