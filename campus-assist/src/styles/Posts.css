@@ -62,7 +62,7 @@
   
 }
 
-//* Align post payment to the right */
+/* Align post payment to the right */
 .post p.payment {
   margin-bottom: 10px; /* Increase margin for better separation */
   margin-left: 10px; /* Pushes the payment to the right */
@@ -81,7 +81,12 @@
   align-items:last baseline;
   
 }
-
+.post p.netid {
+  text-align: left;
+  font-size: 16px;
+  margin-top: 5px; /* Increase margin for better separation */
+  margin-left: 5px;
+}
 .post img {
   max-width: 380px; /* Maximum width */
   max-height: 400px; /* Maximum height */

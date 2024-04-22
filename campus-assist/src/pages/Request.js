@@ -13,6 +13,7 @@ import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "fire
 const Request = () => {
   const [selectedService, setSelectedService] = useState("");
   const [details, setDetails] = useState("");
+  const [netid, setNetId] = useState("");
   const [payment, setPayment] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -47,6 +48,7 @@ const Request = () => {
         
         Service: selectedService,
         Details: details,
+        NetId: netid,
         Payment: payment,
         Date: dateToRecord,
       };
@@ -71,6 +73,7 @@ const Request = () => {
       // Clear all fields after successful submission
       setSelectedService("");
       setDetails("");
+      setNetId("");
       setPayment("");
       setSelectedDate(null);
       setSelectedImage(null);
@@ -110,12 +113,20 @@ const Request = () => {
       <TextField
         label="Details"
         multiline
-        rows={4}
+        rows={3}
         fullWidth
         value={details}
         onChange={(e) => setDetails(e.target.value)}
       />
+
       <p>   </p>
+      <TextField
+        label="Contact me in Teams: NetID: abc1234"
+        fullWidth
+        value={netid}
+        onChange={(e) => setNetId(e.target.value)}
+      />
+      
       
       <input
         id="file-input"
@@ -123,12 +134,15 @@ const Request = () => {
         onChange={handleImageChange}
         accept="Images/*"
       />
+      
       {selectedImage && (
         <Button variant="outlined" onClick={handleClearImage}>
           Clear Image
         </Button>
       )}
+      
       <p>   </p>
+
       <TextField
         label="Willing to Pay"
         fullWidth
