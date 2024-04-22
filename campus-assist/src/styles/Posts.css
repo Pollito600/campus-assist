@@ -47,7 +47,7 @@
   overflow: auto; /* Add scroll if content overflows the container */
 }
 
-.post h3 {
+.post h2 {
   margin-top: 5px;
   text-align: center;
   margin-bottom: 5px;
@@ -65,13 +65,15 @@
 /* Align post payment to the right */
 .post p.payment {
   margin-bottom: 10px; /* Increase margin for better separation */
-  margin-left: 10px; /* Pushes the payment to the right */
+  margin-left: 5px; /* Pushes the payment to the right */
+  font-size: 14px;
 }
 
 /* Align post date to the left */
 .post p.date {
   margin-bottom: 10px; /* Increase margin for better separation */
-  margin-right: 10px; /* Pushes the date to the left */
+  margin-right: 5px; /* Pushes the date to the left */
+  font-size: 14px;
 }
 
 .payment-date-container {
@@ -81,11 +83,24 @@
   align-items:last baseline;
   
 }
-.post p.netid {
+.post p.username {
   text-align: left;
   font-size: 16px;
   margin-top: 5px; /* Increase margin for better separation */
   margin-left: 5px;
+}
+.post p.netid {
+  text-align: right;
+  font-size: 16px;
+  margin-top: 5px; /* Increase margin for better separation */
+  margin-right: 5px;
+}
+.username-netid {
+  display: flex;
+  justify-content: space-between; /* Distribute space between children */
+  width: 100%; /* Full width of container */
+  align-items:last baseline;
+  
 }
 .post img {
   max-width: 380px; /* Maximum width */

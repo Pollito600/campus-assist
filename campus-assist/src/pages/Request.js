@@ -1,4 +1,5 @@
 // Request.js
+
 import React, { useState } from "react";
 import { TextField, Button, Select, MenuItem, InputLabel, FormControl } from "@mui/material";
 import DatePicker from "react-datepicker";
@@ -7,12 +8,12 @@ import { format } from 'date-fns';
 import "../styles/Request.css";
 import { app } from "../FirebaseConfig";
 import { getDatabase, ref, set, push } from "firebase/database";
-//import { v4 as uuidv4 } from "uuid";
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const Request = () => {
   const [selectedService, setSelectedService] = useState("");
   const [details, setDetails] = useState("");
+  const [username, setUserName] = useState("");
   const [netid, setNetId] = useState("");
   const [payment, setPayment] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
@@ -48,6 +49,7 @@ const Request = () => {
         
         Service: selectedService,
         Details: details,
+        UserName:username,
         NetId: netid,
         Payment: payment,
         Date: dateToRecord,
@@ -73,6 +75,7 @@ const Request = () => {
       // Clear all fields after successful submission
       setSelectedService("");
       setDetails("");
+      setUserName("");
       setNetId("");
       setPayment("");
       setSelectedDate(null);
@@ -119,6 +122,13 @@ const Request = () => {
         onChange={(e) => setDetails(e.target.value)}
       />
 
+      <p>   </p>
+      <TextField
+        label="User Name:"
+        fullWidth
+        value={username}
+        onChange={(e) => setUserName(e.target.value)}
+      />
       <p>   </p>
       <TextField
         label="Teams NetID: abc1234"

@@ -70,13 +70,17 @@ const Posts = () => {
             <div className="image-container">
               {post.Picture && <img src={post.Picture} alt="Post" className="post-image" />}
             </div>
-            <h3 className="service-title">{post.Service}</h3>
-            <p className="details">{post.Details}</p>
-            <div className="payment-date-container">
-              <p className="payment">${post.Payment}</p>
-              < p className="date">{post.Date}</p>
+            <h2 className="service-title">{post.Service}</h2>
+              <p className="details">{post.Details}</p>
+            <div className="username-netid">
+              <p className="username"><strong>Name: </strong>{post.UserName}</p>
+              <p className="netid"><strong>Teams/NetID: </strong> <a href="https://teams.microsoft.com/" target="blank">{post.NetId}</a> </p>
             </div>
-            <p className="netid">Contact me in Teams/NetID: <a href="https://teams.microsoft.com/" target="blank">{post.NetId}</a> </p>
+            <div className="payment-date-container">
+              <p className="payment"><strong>$ </strong>{post.Payment}</p>
+              <p className="date"><strong>Date/Time: </strong>{post.Date}</p>
+            </div>
+
         </div>
         ))}
       </div>
