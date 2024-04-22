@@ -121,7 +121,7 @@ const Request = () => {
 
       <p>   </p>
       <TextField
-        label="Contact me in Teams: NetID: abc1234"
+        label="Teams NetID: abc1234"
         fullWidth
         value={netid}
         onChange={(e) => setNetId(e.target.value)}

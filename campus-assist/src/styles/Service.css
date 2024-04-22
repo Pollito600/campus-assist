@@ -1,3 +1,5 @@
+/* Base styles */
+
 .service {
   width: 100%;
   height: 100%;
@@ -10,60 +12,127 @@
 
 .service .serviceTitle {
   font-family: "Trebuchet MS", sans-serif;
-  font-size: 5vw; /* Adjust font size relative to viewport width */
+  font-size: 5vw;
 }
 
 .serviceList {
-  width: 90%; /* Adjust width relative to the parent container */
+  width: 90%;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust grid columns automatically based on container size */
-  gap: 20px; /* Add gap between grid items */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
   place-items: center;
 }
 
 /* SERVICES ITEM STYLING */
 
 .ServiceItem {
-  border-radius: 4vw; /* Adjust border radius relative to viewport width */
+  border-radius: 4vw;
   width: 100%;
-  height: 80%;
-  max-width: 300px; /* Set maximum width for consistency */
-  margin: 1vw; /* Adjust margin relative to viewport width */
-  box-shadow: 0px 3px 5vw rgba(0, 0, 0, 0.2); /* Adjust box shadow relative to viewport width */
+  height: 120%;
+  max-width: 300px;
+  margin: 25px;
+  box-shadow: 0px 3px 5vw rgba(0, 0, 0, 0.2);
 }
 
 .ServiceItem:hover {
-  box-shadow: 0px 3px 5vw rgba(0, 0, 0, 0.5); /* Adjust hover box shadow relative to viewport width */
+  box-shadow: 0px 3px 6vw rgba(0, 0, 0, 0.5);
   transition: 0.3s ease-in;
   cursor: pointer;
 }
 
 .ServiceItem div {
-  border-top-left-radius: 4vw; /* Adjust border radius relative to viewport width */
-  border-top-right-radius: 4vw; /* Adjust border radius relative to viewport width */
-  width: auto;
-  height: 10vw; /* Adjust height relative to viewport width */
-  max-height: 300px; /* Set maximum height for consistency */
-  background-position: center top ;
+  border-top-left-radius: 4vw;
+  border-top-right-radius: 4vw;
+  width:auto; /* Adjusted width */
+  height: 145%; /* Adjusted height */
+  background-position: center top;
   background-repeat: no-repeat;
-  background-size: 57% ;
+  background-size: 70%;
+  position: relative; /* Changed to absolute positioning */
+  top: 0; /* Positioned at the top */
+  left: 0; /* Positioned at the left */
 }
-/* Overlay styling */
 
+.ServiceItem div.name {
+  border-top-left-radius: 4vw;
+  border-top-right-radius: 4vw;
+  width:auto; /* Adjusted width */
+  height: 35%; /* Adjusted height */
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 45%;
+  position: relative; /* Changed to absolute positioning */
+  top: 0; /* Positioned at the top */
+  left: 0; /* Positioned at the left */
+}
 
-/* Service name styling */
 .ServiceItem .name {
-  bottom: 0px; /* Adjust position as needed */
-  left: 0px; /* Adjust position as needed */
-  color: rgb(255, 255, 255);
-  background-color: rgba(149, 146, 146, 0.752); /* Semi-transparent background */
-  padding: 5px;
+  color: rgb(18, 18, 18);
+  background-color: rgba(149, 146, 146, 0.752);
+  padding: 18px;
   border-radius: 4vw;
-  white-space: nowrap; /* Prevent text wrapping */
+  white-space: nowrap;
 }
 
 .ServiceItem h2 {
-position:center;  
-  margin: 50px; /* Remove default margin */
+  position: center;  
+  margin: 5px;
+}
+
+/* Media queries for responsive design */
+
+@media (max-width: 768px) {
+  .service .serviceTitle {
+    font-size: 6vw;
+    margin-bottom: 6vw;
+  }
+  
+  
+  .ServiceItem {
+    margin: 3 vw; /* Adjust margin for smaller screens */
+    box-shadow: 0px 2px 3vw rgba(0, 0, 0, 0.2);
+  }
+  
+  .ServiceItem div {
+    height: 25vw; /* Adjust height for smaller screens */
+    margin: 2vw;
+  }
+  .ServiceItem div.name {
+    height: 3vw; /* Adjust height for smaller screens */
+  }
+  
+  .ServiceItem .name {
+    padding: 30px; /* Adjust padding for smaller screens */
+  }
+  
+  .ServiceItem h2 {
+    margin: 0px;
+    font-size: 3vw; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .service .serviceTitle {
+    font-size: 7vw;
+  }
+  
+  .ServiceItem {
+    margin: 6vw;
+    box-shadow: 0px 1px 2vw rgba(0, 0, 0, 0.2);
+  }
+  
+  .ServiceItem div {
+    height: 20vw;
+  }
+  
+  .ServiceItem .name {
+    padding: 8px;
+    font-size: 3vw; /* Adjust font size for even smaller screens */
+  }
+  
+  .ServiceItem h2 {
+    margin: 15px;
+    font-size: 3vw;
+  }
 }

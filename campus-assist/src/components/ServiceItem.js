@@ -8,15 +8,13 @@ function ServiceItem({ image, name, description }) {
       {/* Link the images to the request-service page path by clicking on the image*/}
       <Link to="/requestservice">
         {/* Use a div with background image style */}
-        <div style={{ backgroundImage: `url('${image}')`,     
-          }} 
-          title={description}> {/*Tooltip description*/}
-          
+        <div style={{ backgroundImage: `url('${image}')`}} title={description}> {/*Tooltip description*/}      
         </div>
-      </Link>
-      <div className="name">
+      
+        <div className="name">
             <h2>{name}</h2>
-          </div>
+        </div>
+        </Link>
     </div>
   );
 }
