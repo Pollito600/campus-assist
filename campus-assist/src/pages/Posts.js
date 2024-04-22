@@ -76,8 +76,7 @@ const Posts = () => {
               <p className="payment">${post.Payment}</p>
               < p className="date">{post.Date}</p>
             </div>
-            <p className="netid">Contact me in Teams/NetID:
-             <a href="https://teams.microsoft.com/dl/launcher/launcher.html?url=%2F_%23%2Fl%2Fentity%2Fd3d1be68-066c-4967-a74b-9edcf902dcfb%2FteamsDashboard%3Fcontext%3D%257B%2522subEntityId%2522%3A%2522SourceData-%2Credirected-from%3D%253EAD_Google_PROSPECTS_All-Other-Countries__Brand-Microsoft_RSA%2522%257D%26src%3Dadwords%26utm_campaign%3DBrand_Microsoft_AllCountries%26utm_medium%3Dppc%26utm_source%3Dadwords%26utm_term%3Dmicrosoft%2520t%25C3%25A9ams%26hsa_net%3Dadwords%26hsa_ad%3D692255743195%26hsa_kw%3Dmicrosoft%2520t%25C3%25A9ams%26hsa_mt%3Db%26hsa_src%3Dg%26hsa_cam%3D15060775870%26hsa_ver%3D3%26hsa_acc%3D4570815156%26hsa_tgt%3Dkwd-1205343431894%26hsa_grp%3D146854353822%26gad_source%3D1%26gclid%3DCj0KCQjw8pKxBhD_ARIsAPrG45k1stY9f8MVtc74piYfpxQSvKSaqN5agLq-vbh2kdCvWfeMH8cJb5AaAgUGEALw_wcB&type=entity&deeplinkId=f7115a86-3e8a-4180-9d1c-3cb7b4f16e56&directDl=true&msLaunch=true&enableMobilePage=true&suppressPrompt=true#" target="blank">{post.NetId}</a> </p>
+            <p className="netid">Contact me in Teams/NetID: <a href="https://teams.microsoft.com/" target="blank">{post.NetId}</a> </p>
         </div>
         ))}
       </div>
