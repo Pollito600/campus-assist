@@ -69,8 +69,8 @@ const Account = () => {
   const handleUploadProfilePic = async () => {
     try {
       if (editorRef.current && imageFile) {
-        const canvas = editorRef.current.getImage();
-        const dataUrl = canvas.toDataURL(); // Get cropped image as data URL
+        const canvas = editorRef.current.getImageScaledToCanvas(); // Get resized image
+        const dataUrl = canvas.toDataURL(); // Get resized image as data URL
 
         // Convert data URL to Blob
         const blob = await fetch(dataUrl).then((res) => res.blob());
@@ -100,7 +100,7 @@ const Account = () => {
       </div>
 
       <div className="bio-container">
-        <h2>Edit Bio</h2>
+        <h2>Bio</h2>
         <textarea
           className="bio-textarea"
           value={newBio}
@@ -113,7 +113,7 @@ const Account = () => {
       </div>
 
       <div className="profile-pic-container">
-        <h2>Upload Profile Picture</h2>
+        <h2>Profile Picture</h2>
         <input type="file" accept="image/*" onChange={handleFileChange} />
         {uploadMode && imageFile && (
           <div className="editor-container">
@@ -125,7 +125,7 @@ const Account = () => {
               border={50}
               borderRadius={75}
               color={[255, 255, 255, 0.6]} // RGBA
-              scale={1.2}
+              scale={1}
               rotate={0}
             />
             <button className="upload-button" onClick={handleUploadProfilePic}>Upload</button>
