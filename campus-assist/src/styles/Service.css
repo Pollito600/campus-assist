@@ -19,7 +19,7 @@
   width: 90%;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   place-items: center;
 }
@@ -41,42 +41,32 @@
   cursor: pointer;
 }
 
-.ServiceItem div {
-  border-top-left-radius: 4vw;
-  border-top-right-radius: 4vw;
-  width:auto; /* Adjusted width */
-  height: 145%; /* Adjusted height */
+.ServiceItem div,
+.ServiceItem div.name {
+  width: 100%;
+  height: 130%;
   background-position: center top;
   background-repeat: no-repeat;
   background-size: 70%;
-  position: relative; /* Changed to absolute positioning */
-  top: 0; /* Positioned at the top */
-  left: 0; /* Positioned at the left */
+  position: relative;
+  top: 0;
+  left: 0;
 }
 
 .ServiceItem div.name {
-  border-top-left-radius: 4vw;
-  border-top-right-radius: 4vw;
-  width:auto; /* Adjusted width */
-  height: 35%; /* Adjusted height */
-  background-position: center top;
-  background-repeat: no-repeat;
+  height: 30%;
   background-size: 45%;
-  position: relative; /* Changed to absolute positioning */
-  top: 0; /* Positioned at the top */
-  left: 0; /* Positioned at the left */
 }
 
 .ServiceItem .name {
   color: rgb(18, 18, 18);
   background-color: rgba(149, 146, 146, 0.752);
-  padding: 18px;
+  padding: 15px;
   border-radius: 4vw;
   white-space: nowrap;
 }
 
 .ServiceItem h2 {
-  position: center;  
   margin: 5px;
 }
 
@@ -88,27 +78,29 @@
     margin-bottom: 6vw;
   }
   
-  
   .ServiceItem {
-    margin: 3 vw; /* Adjust margin for smaller screens */
+    margin: 4vw; /* Adjusted margin */
     box-shadow: 0px 2px 3vw rgba(0, 0, 0, 0.2);
   }
   
-  .ServiceItem div {
-    height: 25vw; /* Adjust height for smaller screens */
+  .ServiceItem div,
+  .ServiceItem div.name {
+    height: 25vw;
     margin: 2vw;
   }
+  
   .ServiceItem div.name {
-    height: 3vw; /* Adjust height for smaller screens */
+    height: 3vw;
   }
   
   .ServiceItem .name {
-    padding: 30px; /* Adjust padding for smaller screens */
+    padding: 18px; /* Adjusted padding */
+    font-size: 3vw; /* Adjusted font size */
   }
   
   .ServiceItem h2 {
     margin: 0px;
-    font-size: 3vw; /* Adjust font size for smaller screens */
+    font-size: 3vw;
   }
 }
 
@@ -118,21 +110,22 @@
   }
   
   .ServiceItem {
-    margin: 6vw;
+    margin: 0vw; /* Adjusted margin */
     box-shadow: 0px 1px 2vw rgba(0, 0, 0, 0.2);
   }
   
-  .ServiceItem div {
-    height: 20vw;
+  .ServiceItem div,
+  .ServiceItem div.name {
+    height: 50vw;
   }
   
   .ServiceItem .name {
-    padding: 8px;
-    font-size: 3vw; /* Adjust font size for even smaller screens */
+    padding: 1px; /* Adjusted padding */
+    font-size: 5vw; /* Adjusted font size */
   }
   
   .ServiceItem h2 {
-    margin: 15px;
-    font-size: 3vw;
+    margin: 54px;
+    font-size:7vw;
   }
 }
