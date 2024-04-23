@@ -12,7 +12,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Logout from './components/auth/Logout';
 import Request from './pages/Request';
-import Posts from './pages/Posts'; // Import the Posts component
+import Posts from './pages/Posts';
+import Account from './pages/Account'; // Import the Account component
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
             <Route path="/login" element={<SignIn />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/requestservice" element={<Request />} />
-            <Route path="/posts" element={<Posts />} /> {/* Route for Posts component */}
+            <Route path="/posts" element={<Posts />} />
+            <Route path="/account" element={<Account />} /> {/* Add Route for Account component */}
           </Routes>
         </Router>
       </AuthProvider>

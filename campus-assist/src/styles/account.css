@@ -1,0 +1,64 @@
+/* account.css */
+
+.account-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 60vh;
+  }
+  
+  .info-container {
+    width: 30%;
+  }
+  
+  .bio-container {
+    width: 30%;
+  }
+  
+  .profile-pic-container {
+    width: 30%;
+  }
+  
+  .info {
+    margin-bottom: 20px;
+  }
+  
+  h1, h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .bio-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+  }
+  
+  .upload-button, .crop-button, .save-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .upload-button:hover, .crop-button:hover, .save-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  .success-message {
+    color: green;
+    margin-top: 10px;
+  }
+  

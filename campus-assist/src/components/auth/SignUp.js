@@ -1,37 +1,39 @@
-import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+// SignUp.js
+
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from "../../FirebaseConfig";
 import '../../styles/SignUp.css';
-//import { useNavigate } from 'react-router-dom';
-//import { useAuth } from '../../AuthContext';
 
 const SignUp = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   
-  //const navigate = useNavigate();
-  //const { login } = useAuth(); // Access the login function from AuthContext
-
   const handleSignUp = (e) => {
     e.preventDefault();
 
     if (email.endsWith('@mavs.uta.edu')) {
       createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          console.log(userCredential);
+        .then(() => {
+          // Update user profile with first and last name
+          updateProfile(auth.currentUser, {
+            displayName: `${firstName} ${lastName}`
+          }).then(() => {
+            console.log("Profile updated successfully.");
+          }).catch((error) => {
+            console.log("Error updating profile:", error);
+          });
 
           // Send email verification
           sendEmailVerification(auth.currentUser)
             .then(() => {
-              // Provide a message about email verification
               setSuccessMessage(
                 "Verification email sent. Please check your inbox to verify your account."
               );
-              
-              // Redirect to the LogIn page upon successful sign-up
-              //navigate("/login");
             })
             .catch((error) => {
               console.log("Error sending verification email:", error);
@@ -39,9 +41,6 @@ const SignUp = () => {
                 "Failed to send verification email. Please try again later."
               );
             });
-
-          // Call the login function from AuthContext
-          //login(userCredential.user);
         })
         .catch((error) => {
           console.log(error);
@@ -58,11 +57,24 @@ const SignUp = () => {
     }
   };
 
-  // Visual message to request email and password to create account
   return (
     <div className="sign-up-container">
       <form onSubmit={handleSignUp}>
         <h1>Create an Account</h1>
+        <input
+          type="text"
+          placeholder="Enter your first name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          style={{ color: 'black' }}
+        />
+        <input
+          type="text"
+          placeholder="Enter your last name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          style={{ color: 'black' }}
+        />
         <input
           type="email"
           placeholder="Enter your email"

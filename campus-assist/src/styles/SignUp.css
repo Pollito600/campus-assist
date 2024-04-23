@@ -1,48 +1,48 @@
 .sign-up-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 60vh;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  h1 {
-    font-size: 34px; /* Adjust the font size as needed */
-  }
-  
-  input[type="email"],
-  input[type="password"] {
-    width: 300px; /* Adjust the width as needed */
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #007bff;
-    border-radius: 5px;
-    font-size: 16px; /* Adjust the font size as needed */
-  }
-  
-  button {
-    width: 150px; /* Adjust the width as needed */
-    padding: 2px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px; /* Adjust the font size as needed */
-    background-color: #007bff; /* Change the button color as needed */
-    color: white;
-  }
-  
-  button:hover {
-    background-color: #0056b3; /* Change the button hover color as needed */
-  }
-  
-  p {
-    font-size: 16px; /* Adjust the font size as needed */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 34px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 300px;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  width: 150px;
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+p {
+  font-size: 16px;
+}

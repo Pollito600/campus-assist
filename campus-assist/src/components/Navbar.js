@@ -1,3 +1,5 @@
+// Navbar.js
+
 import React, { useState } from "react";
 import Logo from "../assets/logo2_1.png";
 import { Link } from "react-router-dom";
@@ -21,7 +23,8 @@ function Navbar() {
         {user ? (
           <>
             <Link to="/service">Services </Link>
-            <Link to="/logout">Logout</Link> 
+            <Link to="/logout">Logout</Link>
+            <Link to="/account">Account</Link> {/* Add Account link */}
           </>
         ) : (
           <>{/* Show "LogIn" and "Signup" on left side if user hasn't log in */}
@@ -35,6 +38,7 @@ function Navbar() {
             <>
               <Link to="/service"> Services </Link>
               <Link to="/logout"> Logout </Link>
+              <Link to="/account"> Account </Link> {/* Add Account link */}
             </>
           ) : (
             <>
