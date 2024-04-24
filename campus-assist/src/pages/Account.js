@@ -93,25 +93,8 @@ const Account = () => {
 
   return (
     <div className="account-container">
-      <div className="account-info">
-        <h1>Account Information</h1>
-        <p><strong>Name:</strong> {user.displayName}</p>
-        <p><strong>Email:</strong> {user.email}</p>
-      </div>
-
-      <div className="bio-container">
-        <h2>Bio</h2>
-        <textarea
-          className="bio-textarea"
-          value={newBio}
-          onChange={(e) => setNewBio(e.target.value)}
-          placeholder="Enter your bio..."
-          rows="4"
-        />
-        <button className="save-button" onClick={handleSaveBio}>Save Bio</button>
-        {message && <p className={message.includes("successfully") ? "success-message" : "error-message"}>{message}</p>}
-      </div>
-
+            
+      {/* Profile Picture */}
       <div className="profile-pic-container">
         <h2>Profile Picture</h2>
         <input type="file" accept="image/*" onChange={handleFileChange} />
@@ -136,6 +119,27 @@ const Account = () => {
             <img src={profilePic} alt="Profile" />
           </div>
         )}
+      </div>
+      
+      {/* Account information */}
+      <div className="account-info">
+        <h1>Account Information</h1>
+        <p><strong>Name:</strong> {user.displayName}</p>
+        <p><strong>Email:</strong> {user.email}</p>
+      </div>
+
+      {/* Biography information */}
+      <div className="bio-container">
+        <h2>Bio</h2>
+        <textarea
+          className="bio-textarea"
+          value={newBio}
+          onChange={(e) => setNewBio(e.target.value)}
+          placeholder="Enter your bio..."
+          rows="4"
+        />
+        <button className="save-button" onClick={handleSaveBio}>Save Bio</button>
+        {message && <p className={message.includes("successfully") ? "success-message" : "error-message"}>{message}</p>}
       </div>
     </div>
   );

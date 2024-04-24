@@ -69,14 +69,14 @@
   width: 100%;
 }
 
-.post p.username {
+.post .username {
   text-align: left;
   font-size: 14px;
   margin-top: 2px;
   margin-left: 5px;
 }
 
-.post p.netid {
+.post .netid {
   text-align: right;
   font-size: 14px;
   margin-top: 2px;
@@ -158,22 +158,23 @@ h1 {
   margin-right: auto;
  }
 
- button {
+ .post-button-container button {
   padding: 5px 10px; /* Smaller padding for smaller buttons */
-  font-size: 14px; /* Smaller font size for text inside buttons */
-  margin: 5px; /* Reduced margin to bring buttons closer together */
-  margin-left: auto;
+  font-size: 14px;
+  margin: 3px;
+  margin-bottom: 5px;
   border: none; /* Remove border for a cleaner look */
   border-radius: 5px; /* Rounded corners for buttons */
   cursor: pointer; /* Change cursor to pointer on hover */
   transition: background-color 0.3s; /* Smooth background color transition on hover */
-  margin-bottom: 5px;
+  background-color: #007bff;
+  color: white;
   }
 
-button:hover {
-  background-color: #ccc; /* Slight background change on hover for better user interaction */
+.post-button-container button:hover {
+  background-color: #b5b3b3; /* Slight background change on hover for better user interaction */
 }
-.post .button-container {
+.post .post-button-container {
   width: 100%; /* Take the full width of the parent container */
   display: flex; /* Use flexbox to align buttons */
   justify-content: center; /* Center buttons horizontally */

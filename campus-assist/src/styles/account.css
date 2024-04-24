@@ -1,64 +1,120 @@
 /* account.css */
 
 .account-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    height: 60vh;
-  }
-  
-  .info-container {
-    width: 30%;
-  }
-  
+  padding-top: 60px; /* Adjust this value based on the height of your navbar */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  justify-content: center; /* Center children vertically */
+  height: 120vh; /* Full viewport height to center everything on the page */
+  padding: 20px; /* Added padding */
+  background-color: #dcddde; /* Light background color for a fresh look */
+}
+
+.profile-pic-container,
+.account-info,
+.bio-container {
+  width: 45%; /* Adjusted width for better layout */
+  margin-bottom: 20px; /* Space between sections */
+  padding: 20px; /* Added padding for spacing */
+  border-radius: 10px; /* Rounded corners for a modern look */
+  background-color: #ffffff; /* White background for each container */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-align: center; /* Center text for all sections */
+}
+
+.profile-pic-preview img,
+.editor-container img {
+  width: 150px; /* Set width for profile picture */
+  height: 150px; /* Set height for profile picture */
+  border-radius: 50%; /* Circular profile picture */
+  object-fit: cover; /* Ensure the image covers the area */
+  border: 3px solid #333; /* Border for profile picture */
+  margin-bottom: 20px; /* Space below the profile picture */
+}
+
+.account-info h1,
+.bio-container h2 {
+  font-size: 24px; /* Larger font size for headings */
+  margin-bottom: 10px; /* Space below headings */
+}
+
+.account-info p,
+.bio-container textarea {
+  font-size: 18px; /* Font size for text and textarea */
+  color: #343a40; /* Dark gray color for better readability */
+}
+
+.bio-textarea {
+  width: 90%; /* Full width of the container */
+  padding: 12px; /* Padding for comfort */
+  margin-bottom: 20px; /* Space below textarea */
+  border: 1px solid #ced4da; /* Lighter border color */
+  border-radius: 5px; /* Rounded corners for textarea */
+  resize: vertical; /* Allow vertical resizing */
+}
+
+.upload-button,
+.crop-button,
+.save-button {
+  background-color: #007bff; /* Button color */
+  color: white; /* Text color */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding for button size */
+  border-radius: 5px; /* Rounded corners for buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: 10px; /* Space above buttons */
+  font-size: 16px; /* Font size for buttons */
+  transition: background-color 0.2s; /* Transition for hover effect */
+}
+
+.upload-button:hover,
+.crop-button:hover,
+.save-button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.error-message,
+.success-message {
+  margin-top: 10px; /* Space above messages */
+}
+
+/* Responsive design for mobile screens */
+@media screen and (max-width: 768px) {
+  .profile-pic-container,
+  .account-info,
   .bio-container {
-    width: 30%;
-  }
-  
-  .profile-pic-container {
-    width: 30%;
-  }
-  
-  .info {
+    width: 90%; /* Full width for smaller screens */
     margin-bottom: 20px;
   }
-  
-  .account-info h1, h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+
+  /* Adjust font sizes for smaller screens */
+  .account-info h1,
+  .bio-container h2,
+  .info,
+  .bio-textarea,
+  .upload-button,
+  .crop-button,
+  .save-button {
+    font-size: 16px;
   }
-  
-  .bio-textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: vertical;
+}
+
+@media screen and (max-width: 480px) {
+  .profile-pic-container,
+  .account-info,
+  .bio-container {
+    width: 100%; /* Full width for very small screens */
   }
-  
-  .upload-button, .crop-button, .save-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
+
+  /* Further adjust font sizes for very small screens */
+  .account-info h1,
+  .bio-container h2,
+  .info,
+  .bio-textarea,
+  .upload-button,
+  .crop-button,
+  .save-button {
+    font-size: 14px;
   }
-  
-  .upload-button:hover, .crop-button:hover, .save-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .error-message {
-    color: red;
-    margin-top: 10px;
-  }
-  
-  .success-message {
-    color: green;
-    margin-top: 10px;
-  }
-  
+}

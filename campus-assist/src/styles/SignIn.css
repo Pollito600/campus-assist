@@ -6,16 +6,17 @@
     height: 60vh;
   }
   
-  form {
+  .sign-in-container form {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
-  h1 {
+  .sign-in-container h1 {
     font-size: 34px; /* Adjust the font size as needed */
   }
-  
+
+  .sign-in-container
   input[type="email"],
   input[type="password"] {
     width: 300px; /* Adjust the width as needed */
@@ -26,7 +27,7 @@
     font-size: 16px; /* Adjust the font size as needed */
   }
   
-  button {
+  .sign-in-container button {
     width: 150px; /* Adjust the width as needed */
     padding: 2px;
     margin: 5px;
@@ -38,7 +39,7 @@
     color: white;
   }
   
-  button:hover {
+  .sign-in-container button:hover {
     background-color: #0056b3; /* Change the button hover color as needed */
   }
   
