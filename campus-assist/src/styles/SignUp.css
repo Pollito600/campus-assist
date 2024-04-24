@@ -16,6 +16,7 @@ h1 {
   font-size: 34px;
 }
 
+.sign-up-container
 input[type="text"],
 input[type="email"],
 input[type="password"] {

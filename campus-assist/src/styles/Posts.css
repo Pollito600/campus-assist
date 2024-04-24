@@ -1,31 +1,31 @@
 /* Posts.css */
 
 /* Search bar styles */
-.search-bar {
-  width: 20%;
-  padding: 10px;
+.post-search-bar {
+  width: 50%;
+  padding: 15px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-left: 40%;
+  border-radius: 15px;
+  margin-left: 25%;
   margin-bottom: 20px;
-  font-size: 14px;
-  box-sizing: border-box; /* Include padding and border in element's total width and height */
-  color: rgba(255, 255, 255, 0.596); /* Smoky white color with opacity */
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  font-size: 24px;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.596);
+  background-color: rgb(198, 196, 196);
 }
 
-.search-bar::placeholder {
-  color: rgba(255, 255, 255, 0.658); /* Smoky white color for placeholder text */
+.post-search-bar::placeholder {
+  color: rgba(255, 255, 255, 0.658);
+  
 }
 
-/* Adjust color of input text when focused */
-.search-bar:focus {
-  color: rgba(255, 255, 255, 0.9); /* Lighter smoky white color when focused */
+.post-search-bar:focus {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .posts-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  grid-template-columns: repeat(4, 1fr);
   margin: 0 auto;
 }
 
@@ -33,17 +33,17 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
-  margin: 10px; /* Adjusted margin */
-  /*display: flex;*/
+  margin: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
   flex-direction: column;
   align-items: center;
-  background-color: #e4dede; /* Light gray background */
-  box-shadow: 0px 2px 5px rgba(27, 27, 27, 0.1); /* Subtle shadow */
-  max-width: 400px; /* Adjusted maximum width */
-  max-height: 550px; /* Adjusted maximum height */
-  overflow: auto; /* Removed auto overflow */
+  background-color: #e4dede;
+  box-shadow: 0px 2px 5px rgba(27, 27, 27, 0.1);
+  max-width: 400px;
+  max-height: 550px;
+  overflow: auto;
 }
-
 
 .post h2 {
   margin-top: 5px;
@@ -51,99 +51,107 @@
   margin-bottom: 5px;
 }
 
-/* Align post details to the left */
 .post p.details {
   text-align: left;
   font-size: 14px;
-  margin-top: 5px; /* Increase margin for better separation */
+  margin-top: 5px;
   margin-left: 5px;
-  
 }
 
-/* Align post payment to the right */
 .post p.payment {
-  margin-bottom: 10px; /* Increase margin for better separation */
-  margin-left: 5px; /* Pushes the payment to the right */
+  margin-bottom: 10px;
+  margin-left: 5px;
   font-size: 14px;
 }
 
-/* Align post date to the left */
 .post p.date {
-  margin-bottom: 10px; /* Increase margin for better separation */
-  margin-right: 5px; /* Pushes the date to the left */
+  margin-bottom: 10px;
+  margin-right: 5px;
   font-size: 14px;
 }
 
 .payment-date-container {
   display: flex;
-  justify-content: space-between; /* Distribute space between children */
-  width: 100%; /* Full width of container */
-  align-items:last baseline;
-  
+  justify-content: space-between;
+  width: 100%;
 }
+
 .post p.username {
   text-align: left;
   font-size: 16px;
-  margin-top: 5px; /* Increase margin for better separation */
+  margin-top: 5px;
   margin-left: 5px;
 }
+
 .post p.netid {
   text-align: right;
   font-size: 16px;
-  margin-top: 5px; /* Increase margin for better separation */
+  margin-top: 5px;
   margin-right: 5px;
 }
+
 .username-netid {
   display: flex;
-  justify-content: space-between; /* Distribute space between children */
-  width: 100%; /* Full width of container */
-  align-items:last baseline;
-  
+  justify-content: space-between;
+  width: 100%;
 }
+
 .post img {
-  max-width: 380px; /* Maximum width */
-  max-height: 400px; /* Maximum height */
-  width: 100%; /* Take up full width */
-  height: 200px; /* Maintain aspect ratio */
+  max-width: 380px;
+  max-height: 400px;
+  width: 100%;
+  height: 200px;
   border-radius: 10px;
-  align-self: center; /* Center image horizontally */
+  align-self: center;
   object-fit: contain;
 }
 
-/* Center the title */
 h1 {
-  font-size: 44px;
+  font-size: 45px;
   text-align: center;
 }
 
-/* Adjust title size based on window width */
 @media screen and (max-width: 768px) {
   h1 {
-    font-size: 20px; /* Adjust font size for smaller screens */
+    font-size: 20px;
   }
 }
 
 @media screen and (max-width: 480px) {
   h1 {
-    font-size: 10px; /* Adjust font size for even smaller screens */
+    font-size: 10px;
   }
 }
-.selection-circle {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: gray;
-  margin-bottom: 10px;
-}
 
-.progress-bar-container {
-  background-color: gray;
-  height: 10px;
+
+.post .progress-bar-container {
+  width: 320px;
   margin-top: 10px;
-  margin-bottom: 10px;
 }
 
-.progress-bar {
-  height: 100%;
-  background-color: cyan;
+.post .progress-bar {
+  width: auto;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #a4a5a5;
+  margin-bottom: 10px;
+  display: flex;
 }
+
+.post .progress-bar-fill{
+  height: 100%;
+  border-radius: 10px;
+  background-color: #2ecc71; /* fill color  background */
+  transition: width 0.5s ease-out;
+ }
+
+ .post .progress-bar-label{
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #444444;
+ }
+
+ button{
+  margin-top: 15px;
+ }

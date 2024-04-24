@@ -7,7 +7,6 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredPosts, setFilteredPosts] = useState([]);
- //const [progress, setProgress] = useState(0); // Progress bar state
 
   useEffect(() => {
     const db = getDatabase(app);
@@ -20,7 +19,9 @@ const Posts = () => {
         const postList = Object.keys(postData).map((key) => ({
           id: key,
           ...postData[key],
-          postProgress: 0, // Initial progress for each post
+          progress: 0, // Add progress to each post
+          accepted: false, // Add accepted flag to each post
+          onTrack: false // Add onTrack flag to each post
         }));
         setPosts(postList);
         setFilteredPosts(postList); // Initialize filtered posts with all posts
@@ -39,54 +40,80 @@ const Posts = () => {
   const handleSearchChange = (e) => {
     const { value } = e.target;
     setSearchQuery(value);
-    filterPosts(value);
+    setFilteredPosts(filterPosts(value, posts));
   };
 
-  const filterPosts = (query) => {
-    const filtered = posts.filter(
+  const filterPosts = (query, postsArray = []) => {
+    return postsArray.filter(
       (post) =>
-        post.Service.toLowerCase().includes(query.toLowerCase()) ||
-        post.Date.toLowerCase().includes(query.toLowerCase()) ||
-        post.Payment.toLowerCase().includes(query.toLowerCase())
+        (post.Service?.toLowerCase().includes(query.toLowerCase()) ?? false) ||
+        (post.Date?.toLowerCase().includes(query.toLowerCase()) ?? false) ||
+        (post.Payment?.toLowerCase().includes(query.toLowerCase()) ?? false) ||
+        (post.NetId?.toLowerCase().includes(query.toLowerCase()) ?? false) ||
+        (post.UserName?.toLowerCase().includes(query.toLowerCase()) ?? false)
     );
-    setFilteredPosts(filtered);
   };
 
   const handleAccept = (postId) => {
-    console.log("Accept button clicked for post:", postId);
-    const updatedPosts = posts.map((post) =>
-      post.id === postId ? { ...post, postProgress: 33 } : post
-    );
+    const updatedPosts = posts.map((post) => {
+      if (post.id === postId) {
+        return { ...post, progress: 33, accepted: true };
+      }
+      return post;
+    });
     setPosts(updatedPosts);
+    setFilteredPosts(filterPosts(searchQuery, updatedPosts));
   };
-  
+
   const handleOnTrack = (postId) => {
-    const updatedPosts = posts.map((post) =>
-      post.id === postId ? { ...post, postProgress: 67 } : post
-    );
+    const updatedPosts = posts.map((post) => {
+      if (post.id === postId && post.accepted) {
+        return { ...post, progress: 66, onTrack: true };
+      }
+      return post;
+    });
     setPosts(updatedPosts);
+    setFilteredPosts(filterPosts(searchQuery, updatedPosts));
   };
-  
+
   const handleCompleted = (postId) => {
-    const updatedPosts = posts.map((post) =>
-      post.id === postId ? { ...post, postProgress: 100 } : post
-    );
+    const updatedPosts = posts.map((post) => {
+      if (post.id === postId && post.onTrack) {
+        return { ...post, progress: 100, onTrack: false };
+      }
+      return post;
+    });
     setPosts(updatedPosts);
+    setFilteredPosts(filterPosts(searchQuery, updatedPosts));
   };
-  
+
   const handleCancel = (postId) => {
-    const updatedPosts = posts.map((post) =>
-      post.id === postId ? { ...post, postProgress: 0 } : post
-    );
+    const updatedPosts = posts.map((post) => {
+      if (post.id === postId) {
+        return { ...post, progress: 0, accepted: false };
+      }
+      return post;
+    });
     setPosts(updatedPosts);
+    setFilteredPosts(filterPosts(searchQuery, updatedPosts));
   };
+
+  function getColor(progress) {
+    if (progress < 40) {
+      return "#2ecc71";
+    } else if (progress < 70) {
+      return "#2ecc71";
+    } else {
+      return "#2ecc71";
+    }
+  }
 
   return (
     <div>
-      <h1>Posts</h1>
+      <h1 className="post-title">Posts</h1>
       <input
         type="text"
-        className="search-bar"
+        className="post-search-bar"
         placeholder="Search Posts by Service, Date, or Amount"
         value={searchQuery}
         onChange={handleSearchChange}
@@ -107,26 +134,17 @@ const Posts = () => {
               <p className="payment"><strong>$ </strong>{post.Payment}</p>
               <p className="date"><strong>Date/Time: </strong>{post.Date}</p>
             </div>
-            {/* Selection circle */}
-            <div className="selection-circle"></div>
             {/* Progress bar */}
             <div className="progress-bar-container">
-              <div className="progress-bar" style={{ width: `${post.postProgress}%` }}></div>
-            </div>
-            {/* Action buttons */}
-            <div className="button-container">
-              <button onClick={() => handleAccept(post.id)} disabled={post.postProgress > 0}>
-                Accept
-              </button>
-              <button onClick={() => handleOnTrack(post.id)} disabled={post.postProgress < 33 || post.postProgress >= 67}>
-                On-Track
-              </button>
-              <button onClick={() => handleCompleted(post.id)} disabled={post.postProgress !== 67}>
-                Completed
-              </button>
-              <button onClick={() => handleCancel(post.id)} disabled={post.postProgress === 0}>
-                Cancel
-              </button>
+            <div className="progress-bar">
+                <div className="progress-bar-fill" style={{ width: `${post.progress}%`, backgroundColor: getColor(post.progress) }}></div>
+              </div>
+              <div className="progress-bar-label">{post.progress}%</div>
+              {/* Action buttons */}
+              <button onClick={() => handleAccept(post.id)} disabled={post.accepted || post.onTrack}>Accept</button>
+              <button onClick={() => handleOnTrack(post.id)} disabled={!post.accepted || post.progress === 100}>On-Track</button>
+              <button onClick={() => handleCompleted(post.id)} disabled={!post.onTrack}>Completed</button>
+              <button onClick={() => handleCancel(post.id)}>Cancel</button>
             </div>
           </div>
         ))}

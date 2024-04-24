@@ -79,14 +79,14 @@
   }
   
   .ServiceItem {
-    margin: 4vw; /* Adjusted margin */
+    margin: 10px; /* Adjusted margin */
     box-shadow: 0px 2px 3vw rgba(0, 0, 0, 0.2);
   }
   
   .ServiceItem div,
   .ServiceItem div.name {
     height: 25vw;
-    margin: 2vw;
+    margin: 0vw;
   }
   
   .ServiceItem div.name {
@@ -94,7 +94,7 @@
   }
   
   .ServiceItem .name {
-    padding: 18px; /* Adjusted padding */
+    padding: 12px; /* Adjusted padding */
     font-size: 3vw; /* Adjusted font size */
   }
   
