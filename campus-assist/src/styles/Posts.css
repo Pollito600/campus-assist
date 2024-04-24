@@ -160,7 +160,7 @@ h1 {
 
  .post-button-container button {
   padding: 5px 10px; /* Smaller padding for smaller buttons */
-  font-size: 14px;
+  font-size: 16px;
   margin: 3px;
   margin-bottom: 5px;
   border: none; /* Remove border for a cleaner look */
@@ -169,6 +169,8 @@ h1 {
   transition: background-color 0.3s; /* Smooth background color transition on hover */
   background-color: #007bff;
   color: white;
+  width: 150px;
+  height: auto;
   }
 
 .post-button-container button:hover {
