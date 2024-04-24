@@ -15,7 +15,7 @@ function About() {
         <p>
             Campus-Assist is a web based platform  for university students to seek and assist fellow peers with common household services and chores.
 
-           Redefine the college experience through an innovative, community-oriented platform that becomes every student&apos;s instinctive choice when seeking assistance.
+           We are looking to redefine the college experience through an innovative, community-oriented platform that becomes every student&apos;s instinctive choice when seeking assistance.
         </p>
       </div>
     </div>
