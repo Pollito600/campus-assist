@@ -140,11 +140,13 @@ const Posts = () => {
                 <div className="progress-bar-fill" style={{ width: `${post.progress}%`, backgroundColor: getColor(post.progress) }}></div>
               </div>
               <div className="progress-bar-label">{post.progress}%</div>
-              {/* Action buttons */}
+              {/* Action buttons 
+              <div className="button-container">*/}
               <button onClick={() => handleAccept(post.id)} disabled={post.accepted || post.onTrack}>Accept</button>
               <button onClick={() => handleOnTrack(post.id)} disabled={!post.accepted || post.progress === 100}>On-Track</button>
               <button onClick={() => handleCompleted(post.id)} disabled={!post.onTrack}>Completed</button>
               <button onClick={() => handleCancel(post.id)}>Cancel</button>
+              {/*</div>*/}
             </div>
           </div>
         ))}

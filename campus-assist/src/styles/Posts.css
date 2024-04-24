@@ -8,10 +8,10 @@
   border-radius: 15px;
   margin-left: 25%;
   margin-bottom: 20px;
-  font-size: 24px;
+  font-size: 20px;
   box-sizing: border-box;
   color: rgba(255, 255, 255, 0.596);
-  background-color: rgb(198, 196, 196);
+  background-color: rgb(88, 87, 87);
 }
 
 .post-search-bar::placeholder {
@@ -30,23 +30,16 @@
 }
 
 .post {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px;
-  margin-left: 15px;
-  margin-right: 15px;
-  flex-direction: column;
-  align-items: center;
+  border-radius: 10px; /* More rounded corners for post cards */
+  padding: 15px; /* Increase padding for more space inside cards */
+  margin: 15px; /* Increase margin for more space between cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   background-color: #e4dede;
-  box-shadow: 0px 2px 5px rgba(27, 27, 27, 0.1);
-  max-width: 400px;
-  max-height: 550px;
-  overflow: auto;
 }
 
 .post h2 {
   margin-top: 5px;
+  font-size: 20px;
   text-align: center;
   margin-bottom: 5px;
 }
@@ -59,13 +52,13 @@
 }
 
 .post p.payment {
-  margin-bottom: 10px;
+  margin-bottom: 2px;
   margin-left: 5px;
   font-size: 14px;
 }
 
 .post p.date {
-  margin-bottom: 10px;
+  margin-bottom: 2px;
   margin-right: 5px;
   font-size: 14px;
 }
@@ -78,15 +71,15 @@
 
 .post p.username {
   text-align: left;
-  font-size: 16px;
-  margin-top: 5px;
+  font-size: 14px;
+  margin-top: 2px;
   margin-left: 5px;
 }
 
 .post p.netid {
   text-align: right;
-  font-size: 16px;
-  margin-top: 5px;
+  font-size: 14px;
+  margin-top: 2px;
   margin-right: 5px;
 }
 
@@ -112,46 +105,77 @@ h1 {
 }
 
 @media screen and (max-width: 768px) {
-  h1 {
-    font-size: 20px;
+  .posts-container {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for smaller screens */
   }
 }
 
 @media screen and (max-width: 480px) {
-  h1 {
-    font-size: 10px;
+  .posts-container {
+    grid-template-columns: 1fr; /* Single column for very small screens */
+  }
+  .post-search-bar {
+    width: 80%; /* Wider search bar on small screens */
+    margin-left: 10%; /* Center search bar with margin */
   }
 }
 
 
 .post .progress-bar-container {
-  width: 320px;
-  margin-top: 10px;
+    width: 100%; /* Full width progress bar container */
+    padding: 5px; /* Padding around the progress bar */
+    background-color: #939191; /* Light background for the progress bar container */
+    border-radius: 10px; /* Rounded corners for the container */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
 }
+
 
 .post .progress-bar {
-  width: auto;
-  height: 20px;
+    position: relative;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+  }
+
+
+.post .progress-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #2ecc71;
   border-radius: 10px;
-  background-color: #a4a5a5;
-  margin-bottom: 10px;
-  display: flex;
+  transition: width 0.5s ease-out;
 }
 
-.post .progress-bar-fill{
-  height: 100%;
-  border-radius: 10px;
-  background-color: #2ecc71; /* fill color  background */
-  transition: width 0.5s ease-out;
- }
-
  .post .progress-bar-label{
-  margin-top: 10px;
-  font-size: 24px;
+  margin-top: 2px;
+  font-size: 18px;
   font-weight: bold;
-  color: #444444;
+  color: white;
+  text-align: right;
+  margin-right: auto;
  }
 
- button{
-  margin-top: 15px;
- }
+ button {
+  padding: 5px 10px; /* Smaller padding for smaller buttons */
+  font-size: 14px; /* Smaller font size for text inside buttons */
+  margin: 5px; /* Reduced margin to bring buttons closer together */
+  margin-left: auto;
+  border: none; /* Remove border for a cleaner look */
+  border-radius: 5px; /* Rounded corners for buttons */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s; /* Smooth background color transition on hover */
+  margin-bottom: 5px;
+  }
+
+button:hover {
+  background-color: #ccc; /* Slight background change on hover for better user interaction */
+}
+.post .button-container {
+  width: 100%; /* Take the full width of the parent container */
+  display: flex; /* Use flexbox to align buttons */
+  justify-content: center; /* Center buttons horizontally */
+  flex-wrap: wrap; /* Wrap buttons to next line if space is insufficient */
+}
